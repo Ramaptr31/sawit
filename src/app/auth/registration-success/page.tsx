@@ -1,19 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
-export default function RegistrationSuccess() {
+// Komponen untuk konten halaman yang menggunakan useSearchParams
+function RegistrationSuccessContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [countdown, setCountdown] = useState(10);
   
-  const role = searchParams.get("role");
-  const verified = searchParams.get("verified");
+  const role = searchParams?.get("role") || "";
+  const verified = searchParams?.get("verified") || "";
   
   useEffect(() => {
     const timer = setInterval(() => {
@@ -75,43 +76,66 @@ export default function RegistrationSuccess() {
   };
 
   return (
+    <motion.div
+      className="bg-white p-8 rounded-lg shadow-md max-w-md w-full text-center"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      
+      <h1 className="text-2xl font-bold text-gray-900 mt-6">
+        Pendaftaran {getRoleTitle()} Berhasil!
+      </h1>
+      
+      <p className="mt-4 text-gray-600">
+        {getMessage()}
+      </p>
+      
+      {getVerificationStatus()}
+      
+      <div className="mt-8">
+        <Link href="/auth/login">
+          <button className="w-full bg-leaf-green text-white py-3 px-4 rounded-md hover:bg-opacity-90 transition-colors">
+            Lanjut ke Halaman Login
+          </button>
+        </Link>
+        <p className="text-sm text-gray-500 mt-4">
+          Anda akan dialihkan dalam {countdown} detik
+        </p>
+      </div>
+    </motion.div>
+  );
+}
+
+// Komponen loading untuk Suspense
+function RegistrationSuccessLoading() {
+  return (
+    <div className="bg-white p-8 rounded-lg shadow-md max-w-md w-full text-center">
+      <div className="w-16 h-16 mx-auto bg-gray-100 rounded-full flex items-center justify-center">
+        <div className="animate-spin h-8 w-8 border-4 border-leaf-green border-t-transparent rounded-full"></div>
+      </div>
+      <h1 className="text-2xl font-bold text-gray-900 mt-6">
+        Memuat...
+      </h1>
+    </div>
+  );
+}
+
+// Komponen utama
+export default function RegistrationSuccess() {
+  return (
     <>
       <Navbar />
       <div className="min-h-screen bg-gray-50 flex flex-col py-12">
         <div className="container mx-auto px-4 flex-grow flex items-center justify-center">
-          <motion.div
-            className="bg-white p-8 rounded-lg shadow-md max-w-md w-full text-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            
-            <h1 className="text-2xl font-bold text-gray-900 mt-6">
-              Pendaftaran {getRoleTitle()} Berhasil!
-            </h1>
-            
-            <p className="mt-4 text-gray-600">
-              {getMessage()}
-            </p>
-            
-            {getVerificationStatus()}
-            
-            <div className="mt-8">
-              <Link href="/auth/login">
-                <button className="w-full bg-leaf-green text-white py-3 px-4 rounded-md hover:bg-opacity-90 transition-colors">
-                  Lanjut ke Halaman Login
-                </button>
-              </Link>
-              <p className="text-sm text-gray-500 mt-4">
-                Anda akan dialihkan dalam {countdown} detik
-              </p>
-            </div>
-          </motion.div>
+          <Suspense fallback={<RegistrationSuccessLoading />}>
+            <RegistrationSuccessContent />
+          </Suspense>
         </div>
       </div>
       <Footer />

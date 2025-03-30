@@ -22,9 +22,13 @@ const nextConfig = {
     // Mengabaikan error ESLint hanya direkomendasikan untuk pengembangan
     ignoreDuringBuilds: true,
   },
-  // Tambahkan informasi output
-  output: 'standalone',
-  // Pastikan dapat di-deploy di berbagai environtment
+  // Gunakan static export untuk Vercel
+  output: 'export',
+  // Nonaktifkan static optimization untuk komponen yang menggunakan window/location
+  images: {
+    unoptimized: true,
+  },
+  // Pastikan dapat di-deploy di berbagai environment
   trailingSlash: true,
 };
 

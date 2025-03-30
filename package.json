@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build-prod": "next build --no-lint --no-mangling",
+    "build-prod": "next build",
+    "build-static": "next build && touch out/.nojekyll",
     "build-skip-typescript": "tsc --noEmit && next build",
     "start": "next start -p 3002",
     "lint": "next lint",
