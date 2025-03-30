@@ -6,43 +6,45 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { useAuthStore } from "@/lib/store";
+import { getSafeLocation, isBrowser } from "@/lib/browser";
 
 export default function LoginPage() {
   const router = useRouter();
+  const { login } = useAuthStore();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setError("");
+    setErrorMsg("");
 
-    // Simulating API call
-    setTimeout(() => {
-      // Check credentials against dummy data
-      if (
-        (email === "admin@sawiticare.com" && password === "admin123") ||
-        (email === "perusahaan@eco.com" && password === "perusahaan123") ||
-        (email === "petani@kelapa.com" && password === "petani123") ||
-        (email === "ngo@climate.org" && password === "ngo123")
-      ) {
-        // Simple role-based redirect
-        if (email === "admin@sawiticare.com") {
-          router.push("/admin");
-        } else if (email === "perusahaan@eco.com") {
-          router.push("/perusahaan");
-        } else if (email === "petani@kelapa.com") {
-          router.push("/petani");
-        } else if (email === "ngo@climate.org") {
-          router.push("/ngo");
+    try {
+      const user = await login(email, password);
+      const safeLocation = getSafeLocation();
+      
+      if (user) {
+        // Redirect based on role
+        if (user.role === "admin") {
+          router.push("/admin/dashboard");
+        } else if (user.role === "perusahaan") {
+          router.push("/perusahaan/dashboard");
+        } else if (user.role === "petani") {
+          router.push("/petani/dashboard");
+        } else if (user.role === "ngo") {
+          router.push("/ngo/dashboard");
         }
       } else {
-        setError("Email atau password salah. Silakan coba lagi.");
+        setErrorMsg("Email atau password salah");
         setLoading(false);
       }
-    }, 1500);
+    } catch (error) {
+      setErrorMsg("Terjadi kesalahan. Silakan coba lagi.");
+      setLoading(false);
+    }
   };
 
   return (
@@ -61,15 +63,15 @@ export default function LoginPage() {
                 <span className="text-2xl font-bold text-sawit-yellow">Sawit</span>
                 <span className="text-2xl font-bold text-leaf-green">-iCare</span>
               </Link>
-              <h1 className="text-2xl font-bold text-text-dark">Login</h1>
+              <h1 className="text-2xl font-bold text-text-dark">Masuk ke Akun</h1>
               <p className="text-gray-600 mt-2">
                 Masuk untuk mengakses dashboard Anda
               </p>
             </div>
 
-            {error && (
+            {errorMsg && (
               <div className="bg-red-50 text-red-500 p-4 rounded-md mb-6 text-sm">
-                {error}
+                {errorMsg}
               </div>
             )}
 
@@ -91,9 +93,14 @@ export default function LoginPage() {
               </div>
 
               <div className="mb-6">
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
-                  Password
-                </label>
+                <div className="flex items-center justify-between mb-1">
+                  <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                    Password
+                  </label>
+                  <Link href="/auth/forgot-password" className="text-xs text-leaf-green hover:text-opacity-80">
+                    Lupa password?
+                  </Link>
+                </div>
                 <input
                   id="password"
                   name="password"
@@ -106,35 +113,16 @@ export default function LoginPage() {
                 />
               </div>
 
-              <div className="mb-6 flex items-center justify-between">
-                <div className="flex items-center">
-                  <input
-                    id="remember-me"
-                    name="remember-me"
-                    type="checkbox"
-                    className="h-4 w-4 text-sawit-yellow border-gray-300 rounded"
-                  />
-                  <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-700">
-                    Ingat saya
-                  </label>
-                </div>
-                <div className="text-sm">
-                  <a href="#" className="text-leaf-green hover:text-opacity-80">
-                    Lupa password?
-                  </a>
-                </div>
-              </div>
-
               <div>
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-text-dark bg-sawit-yellow hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sawit-yellow ${
+                  className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-leaf-green hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-leaf-green ${
                     loading ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >
                   {loading ? (
-                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-text-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
@@ -161,18 +149,6 @@ export default function LoginPage() {
                     Daftar sekarang
                   </Link>
                 </p>
-              </div>
-            </div>
-
-            <div className="mt-8 border-t border-gray-200 pt-6">
-              <div className="text-xs text-gray-500">
-                <h4 className="font-semibold mb-2">Kredensial Demo:</h4>
-                <div className="space-y-1">
-                  <p><span className="font-medium">Admin:</span> admin@sawiticare.com / admin123</p>
-                  <p><span className="font-medium">Perusahaan:</span> perusahaan@eco.com / perusahaan123</p>
-                  <p><span className="font-medium">Petani:</span> petani@kelapa.com / petani123</p>
-                  <p><span className="font-medium">NGO:</span> ngo@climate.org / ngo123</p>
-                </div>
               </div>
             </div>
           </motion.div>

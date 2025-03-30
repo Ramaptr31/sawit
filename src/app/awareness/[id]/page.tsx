@@ -1,6 +1,8 @@
+import React from "react";
 import Link from "next/link";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { getSafeLocation } from "@/lib/browser";
 
 // Data kampanye sample
 const awarenessDatabase = [

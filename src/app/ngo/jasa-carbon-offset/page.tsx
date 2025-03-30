@@ -4,10 +4,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import DashboardLayout from "@/components/dashboardLayout";
 import { useAuthStore, useDataStore } from "@/lib/store";
+import { getSafeLocation } from "@/lib/browser";
 
 export default function CarbonOffsetServices() {
   const { user } = useAuthStore();
   const { ngos, companies } = useDataStore();
+  const safeLocation = getSafeLocation();
   
   // Find the current user's NGO data
   const ngoData = ngos.find(ngo => 
