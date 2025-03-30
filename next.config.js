@@ -41,8 +41,8 @@ const nextConfig = {
     
     return config;
   },
-  // Gunakan hash untuk routing dengan prefix yang dinamis
-  assetPrefix: process.env.NODE_ENV === 'production' ? '.' : '',
+  // Gunakan hash untuk routing dengan prefix yang benar (harus diawali dengan slash atau URL lengkap)
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/' : '',
   // Biarkan Vercel menangani rewrites melalui vercel.json
   distDir: process.env.NODE_ENV === 'production' ? 'out' : '.next',
 };
