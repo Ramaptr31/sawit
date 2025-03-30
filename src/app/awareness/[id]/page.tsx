@@ -1,8 +1,3 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
@@ -159,10 +154,109 @@ export function generateStaticParams() {
   return params;
 }
 
-export default function AwarenessDetailPage({ params }: { params: { id: string } }) {
-  const router = useRouter();
-  const [loading, setLoading] = useState(true);
+// Fungsi untuk menentukan data kampanye berdasarkan ID
+const getCurrentCampaign = (id: string) => {
+  const numId = parseInt(id);
   
+  // Mencari kampanye dengan ID yang sesuai
+  const foundCampaign = awarenessDatabase.find(campaign => campaign.id === numId);
+  
+  // Jika kampanye ditemukan, gunakan data tersebut
+  // Jika tidak, gunakan placeholder dengan ID yang sama
+  if (foundCampaign) {
+    return foundCampaign;
+  } else if (numId > 2) {
+    // Untuk ID yang tidak ada dalam database, gunakan template dengan ID yang sama
+    return {
+      id: numId,
+      title: `Kampanye Kesadaran Sawit #${numId}`,
+      content: `<p class="mb-4">Ini adalah konten placeholder untuk kampanye dengan ID ${numId}. Detail kampanye ini akan segera tersedia.</p>
+      <p class="mb-4">Kampanye ini akan membahas tentang pentingnya praktik perkebunan sawit berkelanjutan serta manfaatnya bagi lingkungan, masyarakat, dan ekonomi.</p>
+      <p>Kembali lagi nanti untuk melihat konten lengkapnya!</p>`,
+      date: "1 Januari 2024",
+      category: "informasi",
+      image: "placeholder"
+    };
+  } else {
+    // Fallback jika ID tidak valid
+    return {
+      id: 0,
+      title: "Kampanye Tidak Ditemukan",
+      content: "<p>Maaf, kampanye yang Anda cari tidak ditemukan. Silakan kembali ke halaman kampanye untuk melihat kampanye lainnya.</p>",
+      date: "",
+      category: "",
+      image: "placeholder"
+    };
+  }
+};
+
+// Fungsi untuk render image placeholder
+const renderImagePlaceholder = (imageId: string | undefined) => {
+  // Jika imageId tidak ditemukan, gunakan placeholder default
+  const safeImageId = imageId || "placeholder";
+  
+  const iconMap: Record<string, JSX.Element> = {
+    "campaign-1": (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-full w-full text-leaf-green/30"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1}
+          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+        />
+      </svg>
+    ),
+    "campaign-2": (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-full w-full text-sawit-yellow/30"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1}
+          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+        />
+      </svg>
+    ),
+    "placeholder": (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-full w-full text-gray-300"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1}
+          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+        />
+      </svg>
+    )
+  };
+
+  return (
+    <div className="aspect-[5/3] w-full bg-gray-100 rounded-md overflow-hidden flex items-center justify-center">
+      {iconMap[safeImageId] || iconMap["placeholder"]}
+    </div>
+  );
+};
+
+export default function AwarenessDetailPage({ params }: { params: { id: string } }) {
+  const campaign = getCurrentCampaign(params.id);
+  
+  // Struktur untuk animasi
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -172,226 +266,97 @@ export default function AwarenessDetailPage({ params }: { params: { id: string }
     }
   };
 
-  useEffect(() => {
-    // Simulasi loading data
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-    
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Fungsi untuk menentukan data kampanye berdasarkan ID
-  const getCurrentCampaign = () => {
-    const id = parseInt(params.id);
-    
-    // Mencari kampanye dengan ID yang sesuai
-    const foundCampaign = awarenessDatabase.find(campaign => campaign.id === id);
-    
-    // Jika kampanye ditemukan, gunakan data tersebut
-    // Jika tidak, gunakan placeholder dengan ID yang sama
-    if (foundCampaign) {
-      return foundCampaign;
-    } else if (id > 2) {
-      // Untuk ID yang tidak ada dalam database, gunakan template dengan ID yang sama
-      return {
-        id: id,
-        title: `Kampanye Kesadaran Sawit #${id}`,
-        content: `<p class="mb-4">Ini adalah konten placeholder untuk kampanye dengan ID ${id}. Detail kampanye ini akan segera tersedia.</p>
-        <p class="mb-4">Kami sedang menyiapkan konten berkualitas tentang berbagai aspek industri sawit berkelanjutan.</p>
-        <p>Silakan kembali ke <a href="/awareness" class="text-leaf-green hover:underline">halaman kampanye</a> untuk melihat kampanye lain yang sudah tersedia.</p>`,
-        date: "2024",
-        category: "general",
-        image: "placeholder"
-      };
-    } else {
-      return awarenessDatabase[0]; // Fallback ke kampanye pertama
-    }
-  };
-
-  const campaign = getCurrentCampaign();
-
-  // Render image placeholder
-  const renderImagePlaceholder = (imageId: string | undefined) => {
-    // Default image ID jika undefined
-    const safeImageId = imageId || "placeholder";
-    
-    const colorMap: Record<string, string> = {
-      "campaign-1": "bg-green-600",
-      "campaign-2": "bg-earth-brown",
-      "campaign-3": "bg-blue-600",
-      "campaign-4": "bg-orange-500",
-      "campaign-5": "bg-purple-600",
-      "campaign-6": "bg-red-600",
-      "campaign-7": "bg-teal-600",
-      "campaign-8": "bg-amber-600",
-      "placeholder": "bg-gray-500"
-    };
-
-    const iconMap: Record<string, React.ReactNode> = {
-      "campaign-1": (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-        </svg>
-      ),
-      "campaign-2": (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-        </svg>
-      ),
-      "placeholder": (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-      )
-    };
-
-    return (
-      <div className={`w-full h-64 md:h-96 ${colorMap[safeImageId] || 'bg-leaf-green'} flex items-center justify-center text-white`}>
-        {iconMap[safeImageId] || (
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
-        )}
-      </div>
-    );
-  };
-
+  // Kategori map untuk menerjemahkan kategori ke bahasa Indonesia
   const categoryMap: Record<string, string> = {
     "lingkungan": "Lingkungan",
     "petani": "Petani",
-    "carbon": "Carbon Trading",
-    "sertifikasi": "Sertifikasi",
-    "teknologi": "Teknologi",
-    "general": "Umum"
+    "ekonomi": "Ekonomi",
+    "sosial": "Sosial",
+    "informasi": "Informasi"
   };
 
   return (
     <>
       <Navbar />
-      
-      {loading ? (
-        <div className="flex items-center justify-center min-h-screen">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-leaf-green"></div>
-        </div>
-      ) : (
-        <>
-          {/* Hero Image */}
-          {renderImagePlaceholder(campaign.image)}
-          
-          {/* Campaign Content */}
-          <article className="max-w-4xl mx-auto px-4 py-12">
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeIn}
+      <main className="pt-8 pb-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <Link 
+              href="/awareness" 
+              className="inline-flex items-center text-leaf-green hover:text-sawit-yellow mb-6 transition-colors"
             >
-              <div className="mb-6">
-                <span className="px-3 py-1 bg-gray-100 text-sm font-medium rounded-full text-gray-700 inline-block mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
+              </svg>
+              Kembali ke Kampanye
+            </Link>
+            
+            <div className="mb-8">
+              {renderImagePlaceholder(campaign.image)}
+            </div>
+            
+            <div>
+              <div className="flex items-center mb-4">
+                <span className="text-sm font-medium bg-sawit-yellow/10 text-earth-brown px-3 py-1 rounded-full">
                   {categoryMap[campaign.category] || campaign.category}
                 </span>
-                <h1 className="text-3xl md:text-4xl font-bold mb-4">{campaign.title}</h1>
-                <div className="flex flex-wrap items-center text-gray-600 text-sm">
-                  <span className="mr-4">
-                    <strong>Tanggal:</strong> {campaign.date}
-                  </span>
-                </div>
+                <span className="text-sm text-gray-500 ml-4">{campaign.date}</span>
               </div>
               
-              <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: campaign.content }}></div>
+              <h1 className="text-3xl md:text-4xl font-bold text-text-dark mb-6">
+                {campaign.title}
+              </h1>
               
-              <div className="mt-12 pt-8 border-t">
-                <div className="flex justify-between items-center">
-                  <button
-                    onClick={() => router.push('/awareness')}
-                    className="flex items-center text-leaf-green hover:text-leaf-green/80"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                    </svg>
-                    Kembali ke daftar kampanye
-                  </button>
-                  
-                  <div className="flex space-x-4">
-                    <button className="text-gray-600 hover:text-leaf-green">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                      </svg>
-                    </button>
-                    <button className="text-gray-600 hover:text-leaf-green">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </article>
-          
-          {/* Related Campaigns Section */}
-          <section className="bg-gray-50 py-16">
-            <div className="max-w-6xl mx-auto px-4">
-              <h2 className="text-2xl font-bold mb-8 text-center">Kampanye Terkait</h2>
+              <div 
+                className="prose prose-lg max-w-none"
+                dangerouslySetInnerHTML={{ __html: campaign.content }} 
+              />
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {awarenessDatabase
-                  .filter(relatedCampaign => relatedCampaign.id !== campaign.id)
-                  .slice(0, 2)
-                  .map((relatedCampaign, index) => (
-                    <motion.div
-                      key={index}
-                      className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer"
-                      whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                      onClick={() => router.push(`/awareness/${relatedCampaign.id}`)}
+              <div className="border-t border-gray-200 mt-12 pt-8">
+                <h3 className="text-xl font-semibold mb-6">Kampanye Terkait</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {awarenessDatabase.slice(0, 2).map((relatedCampaign) => (
+                    <Link 
+                      href={`/awareness/${relatedCampaign.id}`} 
+                      key={relatedCampaign.id}
+                      className="group"
                     >
-                      <div className={`w-full h-48 ${relatedCampaign.category === "lingkungan" ? "bg-green-600" : "bg-earth-brown"} flex items-center justify-center text-white`}>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                      </div>
-                      <div className="p-6">
-                        <h3 className="text-lg font-semibold mb-2">{relatedCampaign.title}</h3>
-                        <p className="text-gray-600 text-sm mb-4">
-                          {relatedCampaign.title.substring(0, 100)}...
-                        </p>
-                        <div className="flex justify-between items-center text-sm">
-                          <span className="text-gray-500">{relatedCampaign.date}</span>
-                          <span className="text-leaf-green font-medium">Baca selengkapnya</span>
+                      <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <div className="aspect-[16/9] w-full bg-gray-100">
+                          {renderImagePlaceholder(relatedCampaign.image)}
+                        </div>
+                        <div className="p-4">
+                          <p className="text-sm text-leaf-green mb-2">
+                            {categoryMap[relatedCampaign.category] || relatedCampaign.category}
+                          </p>
+                          <h4 className="font-semibold text-text-dark group-hover:text-leaf-green transition-colors">
+                            {relatedCampaign.title}
+                          </h4>
+                          <p className="text-sm text-gray-500 mt-2">{relatedCampaign.date}</p>
                         </div>
                       </div>
-                    </motion.div>
+                    </Link>
                   ))}
+                </div>
               </div>
-            </div>
-          </section>
-          
-          {/* CTA Section */}
-          <section className="bg-leaf-green text-white py-16">
-            <div className="max-w-4xl mx-auto px-4 text-center">
-              <h2 className="text-3xl font-bold mb-6">Bergabung dengan Gerakan Kami</h2>
-              <p className="text-xl mb-8 text-white/90">
-                Mari bersama-sama menciptakan masa depan yang berkelanjutan untuk industri sawit Indonesia.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <button 
-                  onClick={() => router.push('/auth/register')}
-                  className="bg-sawit-yellow text-text-dark px-8 py-3 rounded-full font-medium hover:bg-white transition-colors"
-                >
-                  Daftar Sekarang
-                </button>
+              
+              <div className="bg-leaf-green/5 rounded-lg p-6 mt-12">
+                <h3 className="text-lg font-semibold text-leaf-green mb-3">Dukung Kampanye Ini</h3>
+                <p className="text-gray-700 mb-4">Jadilah bagian dari gerakan untuk mendukung praktik sawit berkelanjutan di Indonesia. Bersama-sama kita bisa menciptakan industri sawit yang berkelanjutan.</p>
                 <Link 
-                  href="/contact"
-                  className="border border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-leaf-green transition-colors"
+                  href="/contact" 
+                  className="inline-flex items-center bg-leaf-green text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors"
                 >
                   Hubungi Kami
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
                 </Link>
               </div>
             </div>
-          </section>
-        </>
-      )}
-
+          </div>
+        </div>
+      </main>
       <Footer />
     </>
   );
