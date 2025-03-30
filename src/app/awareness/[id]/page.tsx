@@ -6,144 +6,140 @@ import Footer from "@/components/footer";
 const awarenessDatabase = [
   {
     id: 1,
-    title: "Sawit Berkelanjutan untuk Indonesia Lebih Baik",
-    content: `<p class="mb-4">Industri sawit merupakan salah satu sektor ekonomi terpenting bagi Indonesia. Sebagai produsen minyak sawit terbesar di dunia, Indonesia memiliki peran strategis dalam mengembangkan praktik berkelanjutan yang dapat menjadi contoh bagi negara produsen sawit lainnya.</p>
+    title: "Kampanye Pendidikan Sawitku Hijau",
+    content: `<p class="mb-4">Kampanye "Sawitku Hijau" adalah inisiatif nasional yang bertujuan untuk meningkatkan kesadaran tentang praktik berkelanjutan dalam industri kelapa sawit Indonesia. Kampanye ini berfokus pada pendidikan dan pelatihan bagi petani kecil yang merupakan bagian penting dari rantai pasokan sawit nasional.</p>
     
-    <p class="mb-4">Kampanye "Sawit Berkelanjutan untuk Indonesia Lebih Baik" bertujuan untuk meningkatkan kesadaran tentang pentingnya praktik perkebunan sawit berkelanjutan bagi masa depan Indonesia, baik dari segi ekonomi, lingkungan, maupun sosial.</p>
+    <p class="mb-4">Melalui program ini, petani kelapa sawit kecil mendapatkan akses ke pengetahuan, sumber daya, dan dukungan yang mereka butuhkan untuk mengadopsi praktik pertanian yang lebih ramah lingkungan dan ekonomis. Tujuan utamanya adalah untuk membantu petani meningkatkan produktivitas mereka sambil mengurangi dampak lingkungan dari aktivitas perkebunan.</p>
     
-    <h3 class="text-xl font-semibold my-4">Mengapa Sawit Berkelanjutan Penting?</h3>
+    <h3 class="text-xl font-semibold my-4">Komponen Utama Kampanye</h3>
     
-    <p class="mb-4">Praktik perkebunan sawit yang tidak berkelanjutan telah menyebabkan berbagai masalah serius, termasuk:</p>
-    
-    <ul class="list-disc pl-6 mb-4">
-      <li class="mb-2">Deforestasi dan hilangnya habitat keanekaragaman hayati</li>
-      <li class="mb-2">Emisi gas rumah kaca yang berkontribusi pada perubahan iklim</li>
-      <li class="mb-2">Konflik tanah dengan masyarakat lokal dan penduduk asli</li>
-      <li class="mb-2">Eksploitasi pekerja dan pelanggaran hak asasi manusia</li>
-    </ul>
-    
-    <p class="mb-4">Di sisi lain, sawit berkelanjutan dapat memberikan manfaat signifikan:</p>
-    
-    <ul class="list-disc pl-6 mb-4">
-      <li class="mb-2">Perlindungan hutan dan keanekaragaman hayati</li>
-      <li class="mb-2">Pengurangan emisi karbon dan mitigasi perubahan iklim</li>
-      <li class="mb-2">Peningkatan kesejahteraan petani dan masyarakat lokal</li>
-      <li class="mb-2">Perlindungan hak pekerja dan kondisi kerja yang lebih baik</li>
-      <li class="mb-2">Akses ke pasar internasional dan premium harga untuk produk berkelanjutan</li>
-    </ul>
-    
-    <h3 class="text-xl font-semibold my-4">Inisiatif Sawit Berkelanjutan di Indonesia</h3>
-    
-    <p class="mb-4">Indonesia telah mengambil beberapa langkah penting menuju praktik sawit berkelanjutan:</p>
+    <p class="mb-4">Kampanye "Sawitku Hijau" terdiri dari beberapa komponen yang saling melengkapi:</p>
     
     <ol class="list-decimal pl-6 mb-4">
-      <li class="mb-2"><strong>ISPO (Indonesian Sustainable Palm Oil)</strong> - Sertifikasi wajib bagi semua produsen sawit di Indonesia untuk memastikan kepatuhan terhadap hukum dan praktik berkelanjutan.</li>
-      <li class="mb-2"><strong>Moratorium Hutan</strong> - Kebijakan untuk menghentikan pemberian izin baru untuk konversi hutan primer dan lahan gambut untuk perkebunan sawit.</li>
-      <li class="mb-2"><strong>Restorasi Gambut</strong> - Program untuk memulihkan lahan gambut yang telah terdegradasi akibat praktik pertanian yang tidak berkelanjutan.</li>
-      <li class="mb-2"><strong>Kemitraan dengan Petani Kecil</strong> - Inisiatif untuk membantu petani kecil mengadopsi praktik berkelanjutan dan meningkatkan produktivitas mereka.</li>
+      <li class="mb-2"><strong>Sesi Pelatihan Tatap Muka</strong> - Workshop dan pelatihan langsung di berbagai daerah penghasil sawit.</li>
+      <li class="mb-2"><strong>Materi Edukasi Digital</strong> - Video, infografis, dan aplikasi mobile yang dapat diakses oleh petani.</li>
+      <li class="mb-2"><strong>Program Pendampingan</strong> - Dukungan berkelanjutan dari ahli pertanian untuk membantu petani mengimplementasikan apa yang mereka pelajari.</li>
+      <li class="mb-2"><strong>Insentif Sertifikasi</strong> - Dukungan untuk petani kecil yang ingin mendapatkan sertifikasi keberlanjutan seperti RSPO dan ISPO.</li>
     </ol>
     
-    <h3 class="text-xl font-semibold my-4">Peran Sawit-iCare</h3>
+    <h3 class="text-xl font-semibold my-4">Dampak yang Diharapkan</h3>
     
-    <p class="mb-4">Melalui Sawit-iCare, kami berkomitmen untuk mendukung transformasi industri sawit Indonesia menuju praktik yang lebih berkelanjutan. Kami melakukan ini dengan:</p>
-    
-    <ul class="list-disc pl-6 mb-4">
-      <li class="mb-2">Mengedukasi petani tentang praktik pertanian berkelanjutan</li>
-      <li class="mb-2">Memfasilitasi akses ke sertifikasi berkelanjutan</li>
-      <li class="mb-2">Menghubungkan perusahaan dengan petani dan NGO untuk kolaborasi</li>
-      <li class="mb-2">Mendorong transparansi dan keterlacakan dalam rantai pasok</li>
-      <li class="mb-2">Mempromosikan inovasi teknologi untuk mendukung keberlanjutan</li>
-    </ul>
-    
-    <h3 class="text-xl font-semibold my-4">Bagaimana Anda Dapat Berkontribusi?</h3>
-    
-    <p class="mb-4">Setiap pemangku kepentingan dalam industri sawit memiliki peran penting dalam mendorong keberlanjutan:</p>
+    <p class="mb-4">Kampanye ini diharapkan dapat memberikan dampak positif yang signifikan, antara lain:</p>
     
     <ul class="list-disc pl-6 mb-4">
-      <li class="mb-2"><strong>Petani:</strong> Mengadopsi praktik pertanian berkelanjutan, mengikuti program sertifikasi</li>
-      <li class="mb-2"><strong>Perusahaan:</strong> Menerapkan kebijakan "Tanpa Deforestasi, Tanpa Gambut, Tanpa Eksploitasi" (NDPE), mendukung petani kecil</li>
-      <li class="mb-2"><strong>Konsumen:</strong> Memilih produk sawit bersertifikat berkelanjutan</li>
-      <li class="mb-2"><strong>Pemerintah:</strong> Memperkuat regulasi dan penegakan hukum</li>
-      <li class="mb-2"><strong>NGO:</strong> Memantau dan mendukung implementasi praktik berkelanjutan</li>
+      <li class="mb-2">Peningkatan produktivitas lahan sebesar 25% melalui praktik pertanian yang lebih baik.</li>
+      <li class="mb-2">Pengurangan penggunaan pupuk kimia dan pestisida yang berlebihan.</li>
+      <li class="mb-2">Penghentian praktik pembukaan lahan dengan membakar.</li>
+      <li class="mb-2">Peningkatan pendapatan petani kecil melalui akses yang lebih baik ke pasar premium.</li>
+      <li class="mb-2">Penguatan kapasitas organisasi petani untuk advokasi dan pemasaran kolektif.</li>
     </ul>
     
-    <p>Dengan komitmen bersama dari semua pemangku kepentingan, kita dapat menciptakan industri sawit yang berkelanjutan dan berkeadilan, yang memberikan manfaat ekonomi sambil melindungi lingkungan dan masyarakat. Mari bergabung dalam gerakan Sawit Berkelanjutan untuk Indonesia Lebih Baik!</p>`,
-    date: "15 April 2024",
-    category: "lingkungan",
-    image: "campaign-1"
+    <h3 class="text-xl font-semibold my-4">Mitra dan Kerjasama</h3>
+    
+    <p class="mb-4">Kampanye "Sawitku Hijau" adalah hasil kerjasama berbagai pemangku kepentingan, termasuk:</p>
+    
+    <ul class="list-disc pl-6 mb-4">
+      <li class="mb-2">Kementerian Pertanian Republik Indonesia</li>
+      <li class="mb-2">Gabungan Pengusaha Kelapa Sawit Indonesia (GAPKI)</li>
+      <li class="mb-2">Lembaga Swadaya Masyarakat lingkungan</li>
+      <li class="mb-2">Perusahaan kelapa sawit terkemuka</li>
+      <li class="mb-2">Lembaga penelitian dan universitas</li>
+    </ul>
+    
+    <h3 class="text-xl font-semibold my-4">Bagaimana Anda Dapat Berkontribusi</h3>
+    
+    <p class="mb-4">Ada berbagai cara bagi individu dan organisasi untuk mendukung kampanye ini:</p>
+    
+    <ul class="list-disc pl-6 mb-4">
+      <li class="mb-2">Menjadi relawan untuk kegiatan pelatihan dan pendampingan petani.</li>
+      <li class="mb-2">Memberikan dukungan finansial untuk pengembangan materi edukasi.</li>
+      <li class="mb-2">Membantu menyebarkan informasi tentang kampanye melalui media sosial.</li>
+      <li class="mb-2">Berpartisipasi dalam dialog dan advokasi kebijakan untuk mendukung petani kecil.</li>
+    </ul>
+    
+    <p class="mb-4">Untuk informasi lebih lanjut tentang cara berkontribusi, silakan hubungi tim Sawit-iCare melalui formulir kontak di situs web ini atau email ke contact@sawit-icare.org.</p>
+    
+    <p>Bersama-sama, kita dapat membangun industri kelapa sawit Indonesia yang lebih berkelanjutan dan adil untuk semua.</p>`,
+    date: "25 April 2024",
+    category: "kampanye-edukasi",
+    image: "awareness-1"
   },
   {
     id: 2,
-    title: "Kehidupan Petani Sawit: Tantangan dan Harapan",
-    content: `<p class="mb-4">Petani sawit kecil memainkan peran vital dalam industri sawit Indonesia. Diperkirakan lebih dari 40% perkebunan sawit di Indonesia dikelola oleh petani kecil, menjadikan mereka tulang punggung industri ini. Namun, mereka juga menghadapi berbagai tantangan yang signifikan dalam menerapkan praktik pertanian berkelanjutan.</p>
+    title: "RSPO untuk Semua: Sertifikasi Keberlanjutan yang Inklusif",
+    content: `<p class="mb-4">Kampanye "RSPO untuk Semua" adalah inisiatif untuk membantu petani kelapa sawit skala kecil di Indonesia memperoleh sertifikasi Roundtable on Sustainable Palm Oil (RSPO). Sertifikasi ini sangat penting untuk mengakses pasar internasional dan mendapatkan harga premium untuk minyak sawit, tetapi seringkali sulit dijangkau oleh petani kecil karena kompleksitas dan biayanya.</p>
     
-    <p class="mb-4">Kampanye "Kehidupan Petani Sawit: Tantangan dan Harapan" bertujuan untuk mendokumentasikan realitas kehidupan petani sawit kecil dan mengidentifikasi solusi untuk meningkatkan kesejahteraan mereka sambil mendorong praktik pertanian yang lebih berkelanjutan.</p>
+    <p class="mb-4">Melalui kampanye ini, kami berupaya mendemokratisasi akses ke sertifikasi RSPO dan membuat standar keberlanjutan lebih inklusif bagi semua pelaku dalam rantai pasok minyak sawit, termasuk petani kecil yang merupakan mayoritas dari produsen sawit di Indonesia.</p>
     
-    <h3 class="text-xl font-semibold my-4">Tantangan yang Dihadapi Petani Sawit Kecil</h3>
+    <h3 class="text-xl font-semibold my-4">Tantangan Sertifikasi untuk Petani Kecil</h3>
     
-    <p class="mb-4">Petani sawit kecil menghadapi beberapa tantangan utama:</p>
+    <p class="mb-4">Petani kecil menghadapi berbagai hambatan dalam memperoleh sertifikasi RSPO, antara lain:</p>
     
     <ul class="list-disc pl-6 mb-4">
-      <li class="mb-2">Akses terbatas ke bibit berkualitas tinggi dan input pertanian</li>
-      <li class="mb-2">Pengetahuan dan keterampilan teknis yang terbatas</li>
-      <li class="mb-2">Akses ke pembiayaan yang sulit</li>
-      <li class="mb-2">Ketidakpastian kepemilikan lahan</li>
-      <li class="mb-2">Posisi tawar yang lemah dalam rantai pasok</li>
-      <li class="mb-2">Kesulitan memenuhi standar keberlanjutan</li>
-      <li class="mb-2">Dampak perubahan iklim pada produktivitas</li>
+      <li class="mb-2">Biaya sertifikasi yang relatif tinggi dibandingkan dengan pendapatan mereka.</li>
+      <li class="mb-2">Kurangnya pemahaman tentang persyaratan dan prosedur sertifikasi.</li>
+      <li class="mb-2">Keterbatasan akses ke teknologi dan sumber daya untuk implementasi standar.</li>
+      <li class="mb-2">Rendahnya kapasitas organisasi petani untuk mengelola proses dokumentasi.</li>
+      <li class="mb-2">Ketidakpastian tentang nilai tambah ekonomi dari sertifikasi.</li>
     </ul>
     
-    <h3 class="text-xl font-semibold my-4">Kisah Inspiratif Petani Sawit</h3>
+    <h3 class="text-xl font-semibold my-4">Pendekatan Kampanye</h3>
     
-    <p class="mb-4">Meskipun tantangan besar, banyak petani sawit telah menunjukkan ketahanan dan inovasi luar biasa:</p>
-    
-    <p class="mb-4">Pak Rahmat dari Riau berhasil meningkatkan produktivitas kebunnya sebesar 30% setelah mengadopsi praktik pertanian berkelanjutan. Ia sekarang menjadi pelatih bagi petani lain di desanya, berbagi pengetahuan dan pengalamannya.</p>
-    
-    <p class="mb-4">Bu Siti dari Kalimantan Barat memimpin kelompok tani perempuan yang berhasil mendapatkan sertifikasi RSPO. Kelompoknya kini menikmati akses ke pasar premium dan pendapatan yang lebih stabil.</p>
-    
-    <h3 class="text-xl font-semibold my-4">Solusi untuk Memberdayakan Petani Sawit</h3>
-    
-    <p class="mb-4">Beberapa solusi kunci untuk mendukung petani sawit kecil antara lain:</p>
+    <p class="mb-4">Kampanye "RSPO untuk Semua" menggunakan pendekatan komprehensif untuk mengatasi tantangan tersebut:</p>
     
     <ol class="list-decimal pl-6 mb-4">
-      <li class="mb-2"><strong>Skema Sertifikasi Berkelanjutan yang Inklusif</strong> - Menyederhanakan proses sertifikasi dan memberikan dukungan teknis kepada petani kecil untuk memenuhi standar.</li>
-      <li class="mb-2"><strong>Akses ke Pembiayaan</strong> - Mengembangkan produk keuangan yang disesuaikan dengan kebutuhan petani kecil, termasuk kredit mikro dengan suku bunga rendah.</li>
-      <li class="mb-2"><strong>Pelatihan dan Pengembangan Kapasitas</strong> - Menyediakan pelatihan tentang praktik pertanian terbaik, pengelolaan keuangan, dan keterampilan wirausaha.</li>
-      <li class="mb-2"><strong>Teknologi yang Tepat</strong> - Memperkenalkan teknologi yang terjangkau dan sesuai untuk meningkatkan produktivitas dan keberlanjutan.</li>
-      <li class="mb-2"><strong>Organisasi Petani yang Kuat</strong> - Mendukung pembentukan dan penguatan kelompok tani untuk meningkatkan posisi tawar kolektif.</li>
+      <li class="mb-2"><strong>Subsidisasi Biaya</strong> - Menyediakan dukungan finansial untuk menutupi sebagian biaya sertifikasi dan audit.</li>
+      <li class="mb-2"><strong>Pengembangan Kapasitas</strong> - Melatih dan mendampingi kelompok tani dalam persiapan sertifikasi.</li>
+      <li class="mb-2"><strong>Penyederhanaan Proses</strong> - Bekerja dengan RSPO untuk mengembangkan jalur sertifikasi yang lebih sederhana untuk petani kecil.</li>
+      <li class="mb-2"><strong>Pembuatan Alat Bantu</strong> - Mengembangkan aplikasi mobile dan alat bantu lainnya untuk dokumentasi dan pemantauan.</li>
+      <li class="mb-2"><strong>Koneksi Pasar</strong> - Menghubungkan petani bersertifikat dengan pembeli yang bersedia membayar premium untuk minyak sawit berkelanjutan.</li>
     </ol>
     
-    <h3 class="text-xl font-semibold my-4">Program Sawit-iCare untuk Petani</h3>
+    <h3 class="text-xl font-semibold my-4">Wilayah Target</h3>
     
-    <p class="mb-4">Sawit-iCare berkomitmen untuk memberdayakan petani sawit kecil melalui beberapa program:</p>
+    <p class="mb-4">Kampanye ini saat ini berfokus pada empat provinsi utama penghasil sawit di Indonesia:</p>
     
     <ul class="list-disc pl-6 mb-4">
-      <li class="mb-2">Akademi Petani Sawit - Platform pelatihan online dan offline untuk pengembangan keterampilan</li>
-      <li class="mb-2">Kalkulator Upah dan Produktivitas - Aplikasi untuk membantu petani menghitung biaya, pendapatan, dan produktivitas</li>
-      <li class="mb-2">Jaringan Mentoring - Menghubungkan petani berpengalaman dengan petani pemula</li>
-      <li class="mb-2">Fasilitasi Sertifikasi - Dukungan teknis dan administratif untuk proses sertifikasi</li>
-      <li class="mb-2">Koneksi Pasar - Menghubungkan petani dengan pembeli yang berkomitmen pada keberlanjutan</li>
+      <li class="mb-2">Riau</li>
+      <li class="mb-2">Sumatera Utara</li>
+      <li class="mb-2">Kalimantan Barat</li>
+      <li class="mb-2">Kalimantan Tengah</li>
     </ul>
     
-    <h3 class="text-xl font-semibold my-4">Cerita dari Lapangan: Dampak Positif</h3>
+    <p class="mb-4">Di masa depan, kami berencana untuk memperluas jangkauan ke provinsi lain seiring dengan pertumbuhan kapasitas dan sumber daya kampanye.</p>
     
-    <p class="mb-4">Program-program ini telah membawa perubahan positif bagi banyak petani:</p>
+    <h3 class="text-xl font-semibold my-4">Pencapaian hingga Saat Ini</h3>
     
-    <p class="mb-4">"Setelah bergabung dengan program Sawit-iCare, produktivitas kebun saya meningkat dan pendapatan saya menjadi lebih stabil. Yang lebih penting, saya sekarang tahu cara mengelola kebun dengan cara yang baik untuk lingkungan dan masa depan anak-anak saya." - Pak Darmawan, petani sawit dari Jambi</p>
+    <p class="mb-4">Sejak diluncurkan pada tahun 2023, kampanye ini telah mencapai beberapa milestones penting:</p>
     
-    <p>"Sebagai petani perempuan, saya dulu merasa suara saya tidak didengar. Melalui program pemberdayaan perempuan Sawit-iCare, saya sekarang menjadi ketua kelompok tani di desa saya dan aktif berbicara tentang hak-hak petani di forum provinsi." - Bu Aminah, petani sawit dari Sumatera Selatan</p>
+    <ul class="list-disc pl-6 mb-4">
+      <li class="mb-2">Lebih dari 500 petani kecil telah mengikuti pelatihan persiapan sertifikasi RSPO.</li>
+      <li class="mb-2">15 kelompok tani (mencakup sekitar 300 petani) telah memulai proses sertifikasi.</li>
+      <li class="mb-2">5 kelompok tani telah berhasil memperoleh sertifikasi RSPO.</li>
+      <li class="mb-2">Pengembangan aplikasi mobile "RSPO Checker" yang membantu petani memahami dan memenuhi kriteria sertifikasi.</li>
+      <li class="mb-2">Penandatanganan MoU dengan 3 perusahaan besar yang berkomitmen untuk membeli minyak sawit dari petani bersertifikat dengan harga premium.</li>
+    </ul>
     
-    <p>Mari bersama-sama mendukung petani sawit Indonesia dalam perjalanan mereka menuju praktik pertanian yang lebih berkelanjutan dan mata pencaharian yang lebih baik. Dengan mendukung petani kecil, kita berinvestasi dalam masa depan industri sawit yang berkelanjutan dan berkeadilan.</p>`,
-    date: "2 Maret 2024",
-    category: "petani",
-    image: "campaign-2"
+    <h3 class="text-xl font-semibold my-4">Bergabung dengan Kampanye</h3>
+    
+    <p class="mb-4">Kami mengundang berbagai pihak untuk bergabung dan mendukung kampanye "RSPO untuk Semua":</p>
+    
+    <ul class="list-disc pl-6 mb-4">
+      <li class="mb-2"><strong>Petani:</strong> Daftarkan kelompok tani Anda untuk mendapatkan dukungan dalam proses sertifikasi.</li>
+      <li class="mb-2"><strong>Perusahaan:</strong> Berkomitmen untuk membeli minyak sawit berkelanjutan dari petani kecil bersertifikat.</li>
+      <li class="mb-2"><strong>Lembaga Donor:</strong> Berikan dukungan finansial untuk memperluas jangkauan kampanye.</li>
+      <li class="mb-2"><strong>Profesional:</strong> Sumbangkan keahlian Anda sebagai pelatih, auditor, atau konsultan.</li>
+    </ul>
+    
+    <p>Untuk informasi lebih lanjut atau untuk mendaftar, silakan kunjungi halaman kontak kami atau hubungi langsung di rspo-untuk-semua@sawit-icare.org.</p>`,
+    date: "18 April 2024",
+    category: "sertifikasi",
+    image: "awareness-2"
   }
 ];
 
 // Fungsi generateStaticParams digunakan untuk pre-rendering halaman dengan parameter dinamis
 export function generateStaticParams() {
-  // Generate params untuk setiap kampanye dalam database
-  // dan tambahkan beberapa ID tambahan untuk kampanye placeholder
   const params = [
     ...awarenessDatabase.map(campaign => ({ id: campaign.id.toString() })),
     { id: "3" },
@@ -162,7 +158,7 @@ const getCurrentCampaign = (id: string) => {
   const foundCampaign = awarenessDatabase.find(campaign => campaign.id === numId);
   
   // Jika kampanye ditemukan, gunakan data tersebut
-  // Jika tidak, gunakan placeholder dengan ID yang sama
+  // Jika tidak, tampilkan template dengan ID tersebut atau pesan kesalahan
   if (foundCampaign) {
     return foundCampaign;
   } else if (numId > 2) {
@@ -170,9 +166,9 @@ const getCurrentCampaign = (id: string) => {
     return {
       id: numId,
       title: `Kampanye Kesadaran Sawit #${numId}`,
-      content: `<p class="mb-4">Ini adalah konten placeholder untuk kampanye dengan ID ${numId}. Detail kampanye ini akan segera tersedia.</p>
-      <p class="mb-4">Kampanye ini akan membahas tentang pentingnya praktik perkebunan sawit berkelanjutan serta manfaatnya bagi lingkungan, masyarakat, dan ekonomi.</p>
-      <p>Kembali lagi nanti untuk melihat konten lengkapnya!</p>`,
+      content: `<p class="mb-4">Ini adalah konten placeholder untuk kampanye dengan ID ${numId}. Detail kampanye akan segera tersedia.</p>
+      <p class="mb-4">Kampanye ini akan membahas tentang berbagai aspek keberlanjutan dalam industri sawit, memberikan edukasi kepada masyarakat, dan mendorong partisipasi dalam praktik sawit yang lebih bertanggung jawab.</p>
+      <p>Kembali lagi nanti untuk melihat kampanye lengkapnya!</p>`,
       date: "1 Januari 2024",
       category: "informasi",
       image: "placeholder"
@@ -190,91 +186,109 @@ const getCurrentCampaign = (id: string) => {
   }
 };
 
+// Kategori map untuk menerjemahkan kategori ke bahasa Indonesia
+const categoryMap: Record<string, string> = {
+  "kampanye-edukasi": "Kampanye Edukasi",
+  "sertifikasi": "Sertifikasi",
+  "perkebunan": "Perkebunan",
+  "lingkungan": "Lingkungan",
+  "sosial": "Sosial",
+  "informasi": "Informasi"
+};
+
 // Fungsi untuk render image placeholder
-const renderImagePlaceholder = (imageId: string | undefined) => {
+const renderImagePlaceholder = (imageId: string) => {
   // Jika imageId tidak ditemukan, gunakan placeholder default
   const safeImageId = imageId || "placeholder";
   
-  const iconMap: Record<string, JSX.Element> = {
-    "campaign-1": (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-full w-full text-leaf-green/30"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1}
-          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-        />
-      </svg>
-    ),
-    "campaign-2": (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-full w-full text-sawit-yellow/30"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1}
-          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-        />
-      </svg>
-    ),
-    "placeholder": (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-full w-full text-gray-300"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1}
-          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-        />
-      </svg>
-    )
-  };
-
-  return (
-    <div className="aspect-[5/3] w-full bg-gray-100 rounded-md overflow-hidden flex items-center justify-center">
-      {iconMap[safeImageId] || iconMap["placeholder"]}
-    </div>
-  );
+  // SVG untuk berbagai jenis gambar
+  if (safeImageId === "awareness-1") {
+    return (
+      <div className="aspect-[16/9] w-full bg-gray-100 rounded-md overflow-hidden flex items-center justify-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-full w-full text-leaf-green/30"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1}
+            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+          />
+        </svg>
+      </div>
+    );
+  } else if (safeImageId === "awareness-2") {
+    return (
+      <div className="aspect-[16/9] w-full bg-gray-100 rounded-md overflow-hidden flex items-center justify-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-full w-full text-earth-brown/30"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1}
+            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+          />
+        </svg>
+      </div>
+    );
+  } else {
+    return (
+      <div className="aspect-[16/9] w-full bg-gray-100 rounded-md overflow-hidden flex items-center justify-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-full w-full text-gray-300"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1}
+            d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
+          />
+        </svg>
+      </div>
+    );
+  }
 };
+
+// JSX untuk komponen kampanye terkait
+const RelatedCampaignItem = ({ campaign }: { campaign: typeof awarenessDatabase[0] }) => (
+  <Link 
+    href={`/awareness/${campaign.id}`} 
+    key={campaign.id}
+    className="group"
+  >
+    <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+      <div className="aspect-[16/9] w-full bg-gray-100">
+        {renderImagePlaceholder(campaign.image)}
+      </div>
+      <div className="p-4">
+        <p className="text-sm text-leaf-green mb-2">
+          {categoryMap[campaign.category] || campaign.category}
+        </p>
+        <h4 className="font-semibold text-text-dark group-hover:text-leaf-green transition-colors">
+          {campaign.title}
+        </h4>
+        <p className="text-sm text-gray-500 mt-2">{campaign.date}</p>
+      </div>
+    </div>
+  </Link>
+);
 
 export default function AwarenessDetailPage({ params }: { params: { id: string } }) {
   const campaign = getCurrentCampaign(params.id);
   
-  // Struktur untuk animasi
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.6 }
-    }
-  };
-
-  // Kategori map untuk menerjemahkan kategori ke bahasa Indonesia
-  const categoryMap: Record<string, string> = {
-    "lingkungan": "Lingkungan",
-    "petani": "Petani",
-    "ekonomi": "Ekonomi",
-    "sosial": "Sosial",
-    "informasi": "Informasi"
-  };
-
   return (
     <>
       <Navbar />
@@ -315,34 +329,18 @@ export default function AwarenessDetailPage({ params }: { params: { id: string }
               <div className="border-t border-gray-200 mt-12 pt-8">
                 <h3 className="text-xl font-semibold mb-6">Kampanye Terkait</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {awarenessDatabase.slice(0, 2).map((relatedCampaign) => (
-                    <Link 
-                      href={`/awareness/${relatedCampaign.id}`} 
-                      key={relatedCampaign.id}
-                      className="group"
-                    >
-                      <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                        <div className="aspect-[16/9] w-full bg-gray-100">
-                          {renderImagePlaceholder(relatedCampaign.image)}
-                        </div>
-                        <div className="p-4">
-                          <p className="text-sm text-leaf-green mb-2">
-                            {categoryMap[relatedCampaign.category] || relatedCampaign.category}
-                          </p>
-                          <h4 className="font-semibold text-text-dark group-hover:text-leaf-green transition-colors">
-                            {relatedCampaign.title}
-                          </h4>
-                          <p className="text-sm text-gray-500 mt-2">{relatedCampaign.date}</p>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
+                  {awarenessDatabase
+                    .filter(c => c.id !== parseInt(params.id))
+                    .slice(0, 2)
+                    .map((relatedCampaign) => (
+                      <RelatedCampaignItem key={relatedCampaign.id} campaign={relatedCampaign} />
+                    ))}
                 </div>
               </div>
               
               <div className="bg-leaf-green/5 rounded-lg p-6 mt-12">
-                <h3 className="text-lg font-semibold text-leaf-green mb-3">Dukung Kampanye Ini</h3>
-                <p className="text-gray-700 mb-4">Jadilah bagian dari gerakan untuk mendukung praktik sawit berkelanjutan di Indonesia. Bersama-sama kita bisa menciptakan industri sawit yang berkelanjutan.</p>
+                <h3 className="text-lg font-semibold text-leaf-green mb-3">Ingin berpartisipasi?</h3>
+                <p className="text-gray-700 mb-4">Dukung kampanye kesadaran sawit kami. Setiap kontribusi membantu untuk memperluas jangkauan dan dampak positif.</p>
                 <Link 
                   href="/contact" 
                   className="inline-flex items-center bg-leaf-green text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors"

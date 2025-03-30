@@ -183,92 +183,109 @@ const getCurrentArticle = (id: string) => {
   }
 };
 
+// Kategori map untuk menerjemahkan kategori ke bahasa Indonesia
+const categoryMap: Record<string, string> = {
+  "sustainability": "Keberlanjutan",
+  "innovation": "Inovasi",
+  "petani": "Petani",
+  "lingkungan": "Lingkungan",
+  "ekonomi": "Ekonomi",
+  "informasi": "Informasi"
+};
+
 // Fungsi untuk render image placeholder
 const renderImagePlaceholder = (imageId: string) => {
   // Jika imageId tidak ditemukan, gunakan placeholder default
   const safeImageId = imageId || "placeholder";
   
-  const iconMap: Record<string, JSX.Element> = {
-    "sustainability-1": (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-full w-full text-leaf-green/30"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1}
-          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-        />
-      </svg>
-    ),
-    "innovation-1": (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-full w-full text-sawit-yellow/30"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1}
-          d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-        />
-      </svg>
-    ),
-    "placeholder": (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-full w-full text-gray-300"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1}
-          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-        />
-      </svg>
-    )
-  };
-
-  return (
-    <div className="aspect-[5/3] w-full bg-gray-100 rounded-md overflow-hidden flex items-center justify-center">
-      {iconMap[safeImageId] || iconMap["placeholder"]}
-    </div>
-  );
+  // SVG untuk berbagai jenis gambar
+  if (safeImageId === "sustainability-1") {
+    return (
+      <div className="aspect-[5/3] w-full bg-gray-100 rounded-md overflow-hidden flex items-center justify-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-full w-full text-leaf-green/30"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1}
+            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+          />
+        </svg>
+      </div>
+    );
+  } else if (safeImageId === "innovation-1") {
+    return (
+      <div className="aspect-[5/3] w-full bg-gray-100 rounded-md overflow-hidden flex items-center justify-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-full w-full text-sawit-yellow/30"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1}
+            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+          />
+        </svg>
+      </div>
+    );
+  } else {
+    return (
+      <div className="aspect-[5/3] w-full bg-gray-100 rounded-md overflow-hidden flex items-center justify-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-full w-full text-gray-300"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1}
+            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+          />
+        </svg>
+      </div>
+    );
+  }
 };
+
+// JSX untuk komponen artikel terkait
+const RelatedArticleItem = ({ article }: { article: typeof articlesDatabase[0] }) => (
+  <Link 
+    href={`/articles/${article.id}`} 
+    key={article.id}
+    className="group"
+  >
+    <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+      <div className="aspect-[16/9] w-full bg-gray-100">
+        {renderImagePlaceholder(article.image)}
+      </div>
+      <div className="p-4">
+        <p className="text-sm text-leaf-green mb-2">
+          {categoryMap[article.category] || article.category}
+        </p>
+        <h4 className="font-semibold text-text-dark group-hover:text-leaf-green transition-colors">
+          {article.title}
+        </h4>
+        <p className="text-sm text-gray-500 mt-2">{article.date}</p>
+      </div>
+    </div>
+  </Link>
+);
 
 export default function ArticleDetailPage({ params }: { params: { id: string } }) {
   const article = getCurrentArticle(params.id);
   
-  // Struktur untuk animasi
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.6 }
-    }
-  };
-
-  // Kategori map untuk menerjemahkan kategori ke bahasa Indonesia
-  const categoryMap: Record<string, string> = {
-    "sustainability": "Keberlanjutan",
-    "innovation": "Inovasi",
-    "petani": "Petani",
-    "lingkungan": "Lingkungan",
-    "ekonomi": "Ekonomi",
-    "informasi": "Informasi"
-  };
-
   return (
     <>
       <Navbar />
@@ -326,28 +343,12 @@ export default function ArticleDetailPage({ params }: { params: { id: string } }
               <div className="border-t border-gray-200 mt-12 pt-8">
                 <h3 className="text-xl font-semibold mb-6">Artikel Terkait</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {articlesDatabase.slice(0, 2).map((relatedArticle) => (
-                    <Link 
-                      href={`/articles/${relatedArticle.id}`} 
-                      key={relatedArticle.id}
-                      className="group"
-                    >
-                      <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                        <div className="aspect-[16/9] w-full bg-gray-100">
-                          {renderImagePlaceholder(relatedArticle.image)}
-                        </div>
-                        <div className="p-4">
-                          <p className="text-sm text-leaf-green mb-2">
-                            {categoryMap[relatedArticle.category] || relatedArticle.category}
-                          </p>
-                          <h4 className="font-semibold text-text-dark group-hover:text-leaf-green transition-colors">
-                            {relatedArticle.title}
-                          </h4>
-                          <p className="text-sm text-gray-500 mt-2">{relatedArticle.date}</p>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
+                  {articlesDatabase
+                    .filter(a => a.id !== parseInt(params.id))
+                    .slice(0, 2)
+                    .map((relatedArticle) => (
+                      <RelatedArticleItem key={relatedArticle.id} article={relatedArticle} />
+                    ))}
                 </div>
               </div>
               
