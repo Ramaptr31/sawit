@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "../lib/browserConfig.js";
+import BrowserPolyfillProvider from "../lib/browserPolyfill";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,7 +24,9 @@ export default function RootLayout({
   return (
     <html lang="id" suppressHydrationWarning>
       <body className={inter.className}>
-        {children}
+        <BrowserPolyfillProvider>
+          {children}
+        </BrowserPolyfillProvider>
       </body>
     </html>
   );

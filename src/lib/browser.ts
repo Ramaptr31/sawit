@@ -6,7 +6,7 @@ export const getSafeLocation = () => {
   if (isBrowser) {
     return window.location;
   }
-  // Fallback for SSR
+  // Fallback for SSR - lebih lengkap
   return {
     href: '',
     hostname: '',
@@ -16,9 +16,18 @@ export const getSafeLocation = () => {
     protocol: 'https:',
     origin: '',
     host: '',
+    port: '',
+    username: '',
+    password: '',
     assign: () => {},
     replace: () => {},
     reload: () => {},
+    toString: () => '',
+    ancestorOrigins: {
+      length: 0,
+      item: () => null,
+      contains: () => false,
+    },
   };
 };
 

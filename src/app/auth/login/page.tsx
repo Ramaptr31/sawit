@@ -23,18 +23,19 @@ export default function LoginPage() {
     setErrorMsg("");
 
     try {
-      const user = await login(email, password);
+      // Explicit type checking for userResult
+      const userResult = await login(email, password);
       const safeLocation = getSafeLocation();
       
-      if (user) {
+      if (userResult && typeof userResult === 'object' && 'role' in userResult) {
         // Redirect based on role
-        if (user.role === "admin") {
+        if (userResult.role === "admin") {
           router.push("/admin/dashboard");
-        } else if (user.role === "perusahaan") {
+        } else if (userResult.role === "perusahaan") {
           router.push("/perusahaan/dashboard");
-        } else if (user.role === "petani") {
+        } else if (userResult.role === "petani") {
           router.push("/petani/dashboard");
-        } else if (user.role === "ngo") {
+        } else if (userResult.role === "ngo") {
           router.push("/ngo/dashboard");
         }
       } else {

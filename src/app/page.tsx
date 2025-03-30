@@ -141,6 +141,7 @@ export default function Home() {
                   title="Traceability"
                   description="Lacak perjalanan sawit dari lahan hingga produk akhir dengan sistem yang transparan dan terverifikasi."
                   icon="traceable"
+                  href="/features/traceability"
                 />
               </motion.div>
               
@@ -149,6 +150,7 @@ export default function Home() {
                   title="Carbon Credit"
                   description="Hitung dan dapatkan kredit karbon dari praktik pertanian berkelanjutan yang Anda terapkan."
                   icon="carbon"
+                  href="/features/carbon-credit"
                 />
               </motion.div>
               
@@ -157,6 +159,7 @@ export default function Home() {
                   title="Sertifikasi"
                   description="Dapatkan sertifikasi keberlanjutan yang diakui secara internasional untuk meningkatkan nilai jual."
                   icon="certificate"
+                  href="/features/sertifikasi"
                 />
               </motion.div>
               
@@ -165,6 +168,7 @@ export default function Home() {
                   title="Edukasi"
                   description="Akses materi edukasi tentang praktik pertanian sawit berkelanjutan dan teknologi terkini."
                   icon="education"
+                  href="/features/edukasi"
                 />
               </motion.div>
               
@@ -173,6 +177,7 @@ export default function Home() {
                   title="Trading Platform"
                   description="Jual beli kredit karbon dan produk sawit berkelanjutan di platform kami yang aman."
                   icon="trading"
+                  href="/features/trading"
                 />
               </motion.div>
               
@@ -181,6 +186,7 @@ export default function Home() {
                   title="Networking"
                   description="Terhubung dengan petani, perusahaan, dan NGO yang fokus pada keberlanjutan sawit."
                   icon="network"
+                  href="/features/networking"
                 />
               </motion.div>
             </motion.div>
