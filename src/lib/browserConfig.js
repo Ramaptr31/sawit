@@ -4,21 +4,21 @@
 if (typeof window === 'undefined') {
   // Polyfill untuk global.location
   global.location = {
-    href: '',
-    hostname: '',
-    pathname: '',
+    href: 'https://example.com/',
+    hostname: 'example.com',
+    pathname: '/',
     search: '',
     hash: '',
     protocol: 'https:',
-    origin: '',
-    host: '',
+    origin: 'https://example.com',
+    host: 'example.com',
     port: '',
     username: '',
     password: '',
     assign: () => {},
     replace: () => {},
     reload: () => {},
-    toString: () => '',
+    toString: () => 'https://example.com/',
     ancestorOrigins: {
       length: 0,
       item: () => null,
@@ -163,22 +163,65 @@ if (typeof window === 'undefined') {
     }
   };
   
-  // Polyfill untuk URL constructor
-  if (!global.URL) {
-    global.URL = class URL {
-      constructor(url, base) {
-        this.href = url;
-        this.pathname = '/';
-        this.host = '';
-        this.hostname = '';
-        this.protocol = 'https:';
-        this.origin = '';
-        this.search = '';
-        this.hash = '';
+  // Fix untuk URL constructor yang menangani relative URL dengan benar
+  const OriginalURL = global.URL;
+  global.URL = function(url, base) {
+    try {
+      // Tangani base jika tidak diberikan untuk URL relatif
+      if (url && (url.startsWith('/') || url.startsWith('./') || url.startsWith('../'))) {
+        // Jika base tidak diberikan, gunakan base default
+        if (!base || base === '') {
+          base = 'https://example.com';
+        }
       }
-      toString() {
-        return this.href;
+      
+      // Coba buat URL dengan base yang telah diberikan
+      return new OriginalURL(url, base);
+    } catch (e) {
+      console.warn(`Error creating URL with input "${url}" and base "${base}": ${e.message}`);
+      
+      // Fallback yang aman untuk URL yang tidak valid
+      const defaultUrl = {
+        href: url && url.startsWith('/') ? `https://example.com${url}` : (url || 'https://example.com/'),
+        pathname: url && url.startsWith('/') ? url : '/',
+        search: '',
+        hash: '',
+        host: 'example.com',
+        hostname: 'example.com',
+        protocol: 'https:',
+        origin: 'https://example.com',
+        port: '',
+        username: '',
+        password: '',
+        toString: () => url || '',
+        searchParams: new URLSearchParams(),
+      };
+      
+      // Tambahkan method searchParams untuk mencegah error
+      defaultUrl.searchParams.get = (key) => null;
+      defaultUrl.searchParams.has = (key) => false;
+      defaultUrl.searchParams.set = (key, value) => {};
+      defaultUrl.searchParams.delete = (key) => {};
+      
+      return defaultUrl;
+    }
+  };
+  
+  // Pastikan URL.prototype tetap intact
+  global.URL.prototype = OriginalURL.prototype;
+  
+  // Tetapkan URLSearchParams jika belum ada
+  if (!global.URLSearchParams) {
+    global.URLSearchParams = class URLSearchParams {
+      constructor() {
+        this.params = {};
       }
+      
+      get(key) { return this.params[key] || null; }
+      has(key) { return key in this.params; }
+      set(key, value) { this.params[key] = value; }
+      delete(key) { delete this.params[key]; }
+      toString() { return ''; }
     };
   }
 }

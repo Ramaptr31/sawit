@@ -15,7 +15,7 @@ export interface User {
 interface AuthState {
   user: User | null;
   isAuthenticated: boolean;
-  login: (email: string, password: string) => Promise<boolean>;
+  login: (email: string, password: string) => Promise<User | null>;
   logout: () => void;
 }
 
@@ -76,10 +76,10 @@ export const useAuthStore = create<AuthState>((set) => ({
         isAuthenticated: true,
       });
       
-      return true;
+      return safeUser;
     }
     
-    return false;
+    return null;
   },
   
   logout: () => {

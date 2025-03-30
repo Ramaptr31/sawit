@@ -1,0 +1,84 @@
+{
+  "version": 3,
+  "basePath": "",
+  "pages404": true,
+  "rewrites": [],
+  "redirects": [],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ],
+  "dynamicRoutes": [
+    {
+      "page": "/articles/[id]",
+      "regex": "^/articles/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "id": "id"
+      },
+      "namedRegex": "^/articles/(?<id>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/awareness/[id]",
+      "regex": "^/awareness/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "id": "id"
+      },
+      "namedRegex": "^/awareness/(?<id>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/about-us",
+      "regex": "^/about-us(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about-us(?:/)?$"
+    },
+    {
+      "page": "/articles",
+      "regex": "^/articles(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/articles(?:/)?$"
+    },
+    {
+      "page": "/auth/login",
+      "regex": "^/auth/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/auth/login(?:/)?$"
+    },
+    {
+      "page": "/auth/register",
+      "regex": "^/auth/register(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/auth/register(?:/)?$"
+    },
+    {
+      "page": "/auth/registration-success",
+      "regex": "^/auth/registration-success(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/auth/registration-success(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "i18n": null
+} 

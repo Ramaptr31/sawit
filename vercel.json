@@ -22,5 +22,38 @@
       ]
     }
   ],
-  "trailingSlash": true
+  "trailingSlash": true,
+  "rewrites": [
+    { "source": "/articles/:id", "destination": "/articles/[id]" },
+    { "source": "/awareness/:id", "destination": "/awareness/[id]" }
+  ],
+  "routes": [
+    {
+      "src": "^/auth/login(?:/)?$",
+      "dest": "/auth/login.html"
+    },
+    {
+      "src": "^/auth/register(?:/)?$",
+      "dest": "/auth/register.html"
+    },
+    {
+      "src": "^/auth/registration-success(?:/)?$",
+      "dest": "/auth/registration-success.html"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "^/articles/([^/]+)(?:/)?$",
+      "dest": "/articles/[id].html?id=$1"
+    },
+    {
+      "src": "^/awareness/([^/]+)(?:/)?$",
+      "dest": "/awareness/[id].html?id=$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
 } 

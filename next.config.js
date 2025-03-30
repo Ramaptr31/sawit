@@ -41,6 +41,52 @@ const nextConfig = {
     
     return config;
   },
+  // Menangani rute dinamis dengan detail yang lebih lengkap
+  exportPathMap: async function() {
+    // Buat rute statis untuk semua halaman aplikasi
+    return {
+      // Halaman utama
+      '/': { page: '/' },
+      '/about-us': { page: '/about-us' },
+      '/contact': { page: '/contact' },
+      
+      // Halaman autentikasi
+      '/auth/login': { page: '/auth/login' },
+      '/auth/register': { page: '/auth/register' },
+      '/auth/registration-success': { page: '/auth/registration-success' },
+      '/auth/forgot-password': { page: '/auth/forgot-password' },
+      
+      // Halaman informasi
+      '/perusahaan-info': { page: '/perusahaan-info' },
+      '/petani-info': { page: '/petani-info' },
+      '/ngo-info': { page: '/ngo-info' },
+      
+      // Halaman artikel statis (sampel)
+      '/articles': { page: '/articles' },
+      '/articles/1': { page: '/articles/[id]', query: { id: '1' } },
+      '/articles/2': { page: '/articles/[id]', query: { id: '2' } },
+      '/articles/3': { page: '/articles/[id]', query: { id: '3' } },
+      
+      // Halaman awareness statis (sampel)
+      '/awareness': { page: '/awareness' },
+      '/awareness/1': { page: '/awareness/[id]', query: { id: '1' } },
+      '/awareness/2': { page: '/awareness/[id]', query: { id: '2' } },
+      '/awareness/3': { page: '/awareness/[id]', query: { id: '3' } },
+      
+      // Halaman dashboard (hanya untuk contoh)
+      '/admin/dashboard': { page: '/admin/dashboard' },
+      '/perusahaan/dashboard': { page: '/perusahaan/dashboard' },
+      '/petani/dashboard': { page: '/petani/dashboard' },
+      '/ngo/dashboard': { page: '/ngo/dashboard' },
+    };
+  },
+  // Gunakan hash untuk routing dengan prefix yang dinamis
+  assetPrefix: process.env.NODE_ENV === 'production' ? '.' : '',
+  // Pastikan tidak ada rewrites yang dapat menyebabkan isu
+  rewrites: async () => {
+    return [];
+  },
+  distDir: process.env.NODE_ENV === 'production' ? 'out' : '.next',
 };
 
 module.exports = nextConfig;
