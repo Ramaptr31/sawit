@@ -7,6 +7,158 @@ import Link from "next/link";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
+// Data kampanye sample
+const awarenessDatabase = [
+  {
+    id: 1,
+    title: "Sawit Berkelanjutan untuk Indonesia Lebih Baik",
+    content: `<p class="mb-4">Industri sawit merupakan salah satu sektor ekonomi terpenting bagi Indonesia. Sebagai produsen minyak sawit terbesar di dunia, Indonesia memiliki peran strategis dalam mengembangkan praktik berkelanjutan yang dapat menjadi contoh bagi negara produsen sawit lainnya.</p>
+    
+    <p class="mb-4">Kampanye "Sawit Berkelanjutan untuk Indonesia Lebih Baik" bertujuan untuk meningkatkan kesadaran tentang pentingnya praktik perkebunan sawit berkelanjutan bagi masa depan Indonesia, baik dari segi ekonomi, lingkungan, maupun sosial.</p>
+    
+    <h3 class="text-xl font-semibold my-4">Mengapa Sawit Berkelanjutan Penting?</h3>
+    
+    <p class="mb-4">Praktik perkebunan sawit yang tidak berkelanjutan telah menyebabkan berbagai masalah serius, termasuk:</p>
+    
+    <ul class="list-disc pl-6 mb-4">
+      <li class="mb-2">Deforestasi dan hilangnya habitat keanekaragaman hayati</li>
+      <li class="mb-2">Emisi gas rumah kaca yang berkontribusi pada perubahan iklim</li>
+      <li class="mb-2">Konflik tanah dengan masyarakat lokal dan penduduk asli</li>
+      <li class="mb-2">Eksploitasi pekerja dan pelanggaran hak asasi manusia</li>
+    </ul>
+    
+    <p class="mb-4">Di sisi lain, sawit berkelanjutan dapat memberikan manfaat signifikan:</p>
+    
+    <ul class="list-disc pl-6 mb-4">
+      <li class="mb-2">Perlindungan hutan dan keanekaragaman hayati</li>
+      <li class="mb-2">Pengurangan emisi karbon dan mitigasi perubahan iklim</li>
+      <li class="mb-2">Peningkatan kesejahteraan petani dan masyarakat lokal</li>
+      <li class="mb-2">Perlindungan hak pekerja dan kondisi kerja yang lebih baik</li>
+      <li class="mb-2">Akses ke pasar internasional dan premium harga untuk produk berkelanjutan</li>
+    </ul>
+    
+    <h3 class="text-xl font-semibold my-4">Inisiatif Sawit Berkelanjutan di Indonesia</h3>
+    
+    <p class="mb-4">Indonesia telah mengambil beberapa langkah penting menuju praktik sawit berkelanjutan:</p>
+    
+    <ol class="list-decimal pl-6 mb-4">
+      <li class="mb-2"><strong>ISPO (Indonesian Sustainable Palm Oil)</strong> - Sertifikasi wajib bagi semua produsen sawit di Indonesia untuk memastikan kepatuhan terhadap hukum dan praktik berkelanjutan.</li>
+      <li class="mb-2"><strong>Moratorium Hutan</strong> - Kebijakan untuk menghentikan pemberian izin baru untuk konversi hutan primer dan lahan gambut untuk perkebunan sawit.</li>
+      <li class="mb-2"><strong>Restorasi Gambut</strong> - Program untuk memulihkan lahan gambut yang telah terdegradasi akibat praktik pertanian yang tidak berkelanjutan.</li>
+      <li class="mb-2"><strong>Kemitraan dengan Petani Kecil</strong> - Inisiatif untuk membantu petani kecil mengadopsi praktik berkelanjutan dan meningkatkan produktivitas mereka.</li>
+    </ol>
+    
+    <h3 class="text-xl font-semibold my-4">Peran Sawit-iCare</h3>
+    
+    <p class="mb-4">Melalui Sawit-iCare, kami berkomitmen untuk mendukung transformasi industri sawit Indonesia menuju praktik yang lebih berkelanjutan. Kami melakukan ini dengan:</p>
+    
+    <ul class="list-disc pl-6 mb-4">
+      <li class="mb-2">Mengedukasi petani tentang praktik pertanian berkelanjutan</li>
+      <li class="mb-2">Memfasilitasi akses ke sertifikasi berkelanjutan</li>
+      <li class="mb-2">Menghubungkan perusahaan dengan petani dan NGO untuk kolaborasi</li>
+      <li class="mb-2">Mendorong transparansi dan keterlacakan dalam rantai pasok</li>
+      <li class="mb-2">Mempromosikan inovasi teknologi untuk mendukung keberlanjutan</li>
+    </ul>
+    
+    <h3 class="text-xl font-semibold my-4">Bagaimana Anda Dapat Berkontribusi?</h3>
+    
+    <p class="mb-4">Setiap pemangku kepentingan dalam industri sawit memiliki peran penting dalam mendorong keberlanjutan:</p>
+    
+    <ul class="list-disc pl-6 mb-4">
+      <li class="mb-2"><strong>Petani:</strong> Mengadopsi praktik pertanian berkelanjutan, mengikuti program sertifikasi</li>
+      <li class="mb-2"><strong>Perusahaan:</strong> Menerapkan kebijakan "Tanpa Deforestasi, Tanpa Gambut, Tanpa Eksploitasi" (NDPE), mendukung petani kecil</li>
+      <li class="mb-2"><strong>Konsumen:</strong> Memilih produk sawit bersertifikat berkelanjutan</li>
+      <li class="mb-2"><strong>Pemerintah:</strong> Memperkuat regulasi dan penegakan hukum</li>
+      <li class="mb-2"><strong>NGO:</strong> Memantau dan mendukung implementasi praktik berkelanjutan</li>
+    </ul>
+    
+    <p>Dengan komitmen bersama dari semua pemangku kepentingan, kita dapat menciptakan industri sawit yang berkelanjutan dan berkeadilan, yang memberikan manfaat ekonomi sambil melindungi lingkungan dan masyarakat. Mari bergabung dalam gerakan Sawit Berkelanjutan untuk Indonesia Lebih Baik!</p>`,
+    date: "15 April 2024",
+    category: "lingkungan",
+    image: "campaign-1"
+  },
+  {
+    id: 2,
+    title: "Kehidupan Petani Sawit: Tantangan dan Harapan",
+    content: `<p class="mb-4">Petani sawit kecil memainkan peran vital dalam industri sawit Indonesia. Diperkirakan lebih dari 40% perkebunan sawit di Indonesia dikelola oleh petani kecil, menjadikan mereka tulang punggung industri ini. Namun, mereka juga menghadapi berbagai tantangan yang signifikan dalam menerapkan praktik pertanian berkelanjutan.</p>
+    
+    <p class="mb-4">Kampanye "Kehidupan Petani Sawit: Tantangan dan Harapan" bertujuan untuk mendokumentasikan realitas kehidupan petani sawit kecil dan mengidentifikasi solusi untuk meningkatkan kesejahteraan mereka sambil mendorong praktik pertanian yang lebih berkelanjutan.</p>
+    
+    <h3 class="text-xl font-semibold my-4">Tantangan yang Dihadapi Petani Sawit Kecil</h3>
+    
+    <p class="mb-4">Petani sawit kecil menghadapi beberapa tantangan utama:</p>
+    
+    <ul class="list-disc pl-6 mb-4">
+      <li class="mb-2">Akses terbatas ke bibit berkualitas tinggi dan input pertanian</li>
+      <li class="mb-2">Pengetahuan dan keterampilan teknis yang terbatas</li>
+      <li class="mb-2">Akses ke pembiayaan yang sulit</li>
+      <li class="mb-2">Ketidakpastian kepemilikan lahan</li>
+      <li class="mb-2">Posisi tawar yang lemah dalam rantai pasok</li>
+      <li class="mb-2">Kesulitan memenuhi standar keberlanjutan</li>
+      <li class="mb-2">Dampak perubahan iklim pada produktivitas</li>
+    </ul>
+    
+    <h3 class="text-xl font-semibold my-4">Kisah Inspiratif Petani Sawit</h3>
+    
+    <p class="mb-4">Meskipun tantangan besar, banyak petani sawit telah menunjukkan ketahanan dan inovasi luar biasa:</p>
+    
+    <p class="mb-4">Pak Rahmat dari Riau berhasil meningkatkan produktivitas kebunnya sebesar 30% setelah mengadopsi praktik pertanian berkelanjutan. Ia sekarang menjadi pelatih bagi petani lain di desanya, berbagi pengetahuan dan pengalamannya.</p>
+    
+    <p class="mb-4">Bu Siti dari Kalimantan Barat memimpin kelompok tani perempuan yang berhasil mendapatkan sertifikasi RSPO. Kelompoknya kini menikmati akses ke pasar premium dan pendapatan yang lebih stabil.</p>
+    
+    <h3 class="text-xl font-semibold my-4">Solusi untuk Memberdayakan Petani Sawit</h3>
+    
+    <p class="mb-4">Beberapa solusi kunci untuk mendukung petani sawit kecil antara lain:</p>
+    
+    <ol class="list-decimal pl-6 mb-4">
+      <li class="mb-2"><strong>Skema Sertifikasi Berkelanjutan yang Inklusif</strong> - Menyederhanakan proses sertifikasi dan memberikan dukungan teknis kepada petani kecil untuk memenuhi standar.</li>
+      <li class="mb-2"><strong>Akses ke Pembiayaan</strong> - Mengembangkan produk keuangan yang disesuaikan dengan kebutuhan petani kecil, termasuk kredit mikro dengan suku bunga rendah.</li>
+      <li class="mb-2"><strong>Pelatihan dan Pengembangan Kapasitas</strong> - Menyediakan pelatihan tentang praktik pertanian terbaik, pengelolaan keuangan, dan keterampilan wirausaha.</li>
+      <li class="mb-2"><strong>Teknologi yang Tepat</strong> - Memperkenalkan teknologi yang terjangkau dan sesuai untuk meningkatkan produktivitas dan keberlanjutan.</li>
+      <li class="mb-2"><strong>Organisasi Petani yang Kuat</strong> - Mendukung pembentukan dan penguatan kelompok tani untuk meningkatkan posisi tawar kolektif.</li>
+    </ol>
+    
+    <h3 class="text-xl font-semibold my-4">Program Sawit-iCare untuk Petani</h3>
+    
+    <p class="mb-4">Sawit-iCare berkomitmen untuk memberdayakan petani sawit kecil melalui beberapa program:</p>
+    
+    <ul class="list-disc pl-6 mb-4">
+      <li class="mb-2">Akademi Petani Sawit - Platform pelatihan online dan offline untuk pengembangan keterampilan</li>
+      <li class="mb-2">Kalkulator Upah dan Produktivitas - Aplikasi untuk membantu petani menghitung biaya, pendapatan, dan produktivitas</li>
+      <li class="mb-2">Jaringan Mentoring - Menghubungkan petani berpengalaman dengan petani pemula</li>
+      <li class="mb-2">Fasilitasi Sertifikasi - Dukungan teknis dan administratif untuk proses sertifikasi</li>
+      <li class="mb-2">Koneksi Pasar - Menghubungkan petani dengan pembeli yang berkomitmen pada keberlanjutan</li>
+    </ul>
+    
+    <h3 class="text-xl font-semibold my-4">Cerita dari Lapangan: Dampak Positif</h3>
+    
+    <p class="mb-4">Program-program ini telah membawa perubahan positif bagi banyak petani:</p>
+    
+    <p class="mb-4">"Setelah bergabung dengan program Sawit-iCare, produktivitas kebun saya meningkat dan pendapatan saya menjadi lebih stabil. Yang lebih penting, saya sekarang tahu cara mengelola kebun dengan cara yang baik untuk lingkungan dan masa depan anak-anak saya." - Pak Darmawan, petani sawit dari Jambi</p>
+    
+    <p>"Sebagai petani perempuan, saya dulu merasa suara saya tidak didengar. Melalui program pemberdayaan perempuan Sawit-iCare, saya sekarang menjadi ketua kelompok tani di desa saya dan aktif berbicara tentang hak-hak petani di forum provinsi." - Bu Aminah, petani sawit dari Sumatera Selatan</p>
+    
+    <p>Mari bersama-sama mendukung petani sawit Indonesia dalam perjalanan mereka menuju praktik pertanian yang lebih berkelanjutan dan mata pencaharian yang lebih baik. Dengan mendukung petani kecil, kita berinvestasi dalam masa depan industri sawit yang berkelanjutan dan berkeadilan.</p>`,
+    date: "2 Maret 2024",
+    category: "petani",
+    image: "campaign-2"
+  }
+];
+
+// Fungsi generateStaticParams digunakan untuk pre-rendering halaman dengan parameter dinamis
+export function generateStaticParams() {
+  // Generate params untuk setiap kampanye dalam database
+  // dan tambahkan beberapa ID tambahan untuk kampanye placeholder
+  const params = [
+    ...awarenessDatabase.map(campaign => ({ id: campaign.id.toString() })),
+    { id: "3" },
+    { id: "4" },
+    { id: "5" }
+  ];
+  
+  return params;
+}
+
 export default function AwarenessDetailPage({ params }: { params: { id: string } }) {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -19,144 +171,6 @@ export default function AwarenessDetailPage({ params }: { params: { id: string }
       transition: { duration: 0.6 }
     }
   };
-
-  // Data kampanye sample
-  const awarenessDatabase = [
-    {
-      id: 1,
-      title: "Sawit Berkelanjutan untuk Indonesia Lebih Baik",
-      content: `<p class="mb-4">Industri sawit merupakan salah satu sektor ekonomi terpenting bagi Indonesia. Sebagai produsen minyak sawit terbesar di dunia, Indonesia memiliki peran strategis dalam mengembangkan praktik berkelanjutan yang dapat menjadi contoh bagi negara produsen sawit lainnya.</p>
-      
-      <p class="mb-4">Kampanye "Sawit Berkelanjutan untuk Indonesia Lebih Baik" bertujuan untuk meningkatkan kesadaran tentang pentingnya praktik perkebunan sawit berkelanjutan bagi masa depan Indonesia, baik dari segi ekonomi, lingkungan, maupun sosial.</p>
-      
-      <h3 class="text-xl font-semibold my-4">Mengapa Sawit Berkelanjutan Penting?</h3>
-      
-      <p class="mb-4">Praktik perkebunan sawit yang tidak berkelanjutan telah menyebabkan berbagai masalah serius, termasuk:</p>
-      
-      <ul class="list-disc pl-6 mb-4">
-        <li class="mb-2">Deforestasi dan hilangnya habitat keanekaragaman hayati</li>
-        <li class="mb-2">Emisi gas rumah kaca yang berkontribusi pada perubahan iklim</li>
-        <li class="mb-2">Konflik tanah dengan masyarakat lokal dan penduduk asli</li>
-        <li class="mb-2">Eksploitasi pekerja dan pelanggaran hak asasi manusia</li>
-      </ul>
-      
-      <p class="mb-4">Di sisi lain, sawit berkelanjutan dapat memberikan manfaat signifikan:</p>
-      
-      <ul class="list-disc pl-6 mb-4">
-        <li class="mb-2">Perlindungan hutan dan keanekaragaman hayati</li>
-        <li class="mb-2">Pengurangan emisi karbon dan mitigasi perubahan iklim</li>
-        <li class="mb-2">Peningkatan kesejahteraan petani dan masyarakat lokal</li>
-        <li class="mb-2">Perlindungan hak pekerja dan kondisi kerja yang lebih baik</li>
-        <li class="mb-2">Akses ke pasar internasional dan premium harga untuk produk berkelanjutan</li>
-      </ul>
-      
-      <h3 class="text-xl font-semibold my-4">Inisiatif Sawit Berkelanjutan di Indonesia</h3>
-      
-      <p class="mb-4">Indonesia telah mengambil beberapa langkah penting menuju praktik sawit berkelanjutan:</p>
-      
-      <ol class="list-decimal pl-6 mb-4">
-        <li class="mb-2"><strong>ISPO (Indonesian Sustainable Palm Oil)</strong> - Sertifikasi wajib bagi semua produsen sawit di Indonesia untuk memastikan kepatuhan terhadap hukum dan praktik berkelanjutan.</li>
-        <li class="mb-2"><strong>Moratorium Hutan</strong> - Kebijakan untuk menghentikan pemberian izin baru untuk konversi hutan primer dan lahan gambut untuk perkebunan sawit.</li>
-        <li class="mb-2"><strong>Restorasi Gambut</strong> - Program untuk memulihkan lahan gambut yang telah terdegradasi akibat praktik pertanian yang tidak berkelanjutan.</li>
-        <li class="mb-2"><strong>Kemitraan dengan Petani Kecil</strong> - Inisiatif untuk membantu petani kecil mengadopsi praktik berkelanjutan dan meningkatkan produktivitas mereka.</li>
-      </ol>
-      
-      <h3 class="text-xl font-semibold my-4">Peran Sawit-iCare</h3>
-      
-      <p class="mb-4">Melalui Sawit-iCare, kami berkomitmen untuk mendukung transformasi industri sawit Indonesia menuju praktik yang lebih berkelanjutan. Kami melakukan ini dengan:</p>
-      
-      <ul class="list-disc pl-6 mb-4">
-        <li class="mb-2">Mengedukasi petani tentang praktik pertanian berkelanjutan</li>
-        <li class="mb-2">Memfasilitasi akses ke sertifikasi berkelanjutan</li>
-        <li class="mb-2">Menghubungkan perusahaan dengan petani dan NGO untuk kolaborasi</li>
-        <li class="mb-2">Mendorong transparansi dan keterlacakan dalam rantai pasok</li>
-        <li class="mb-2">Mempromosikan inovasi teknologi untuk mendukung keberlanjutan</li>
-      </ul>
-      
-      <h3 class="text-xl font-semibold my-4">Bagaimana Anda Dapat Berkontribusi?</h3>
-      
-      <p class="mb-4">Setiap pemangku kepentingan dalam industri sawit memiliki peran penting dalam mendorong keberlanjutan:</p>
-      
-      <ul class="list-disc pl-6 mb-4">
-        <li class="mb-2"><strong>Petani:</strong> Mengadopsi praktik pertanian berkelanjutan, mengikuti program sertifikasi</li>
-        <li class="mb-2"><strong>Perusahaan:</strong> Menerapkan kebijakan "Tanpa Deforestasi, Tanpa Gambut, Tanpa Eksploitasi" (NDPE), mendukung petani kecil</li>
-        <li class="mb-2"><strong>Konsumen:</strong> Memilih produk sawit bersertifikat berkelanjutan</li>
-        <li class="mb-2"><strong>Pemerintah:</strong> Memperkuat regulasi dan penegakan hukum</li>
-        <li class="mb-2"><strong>NGO:</strong> Memantau dan mendukung implementasi praktik berkelanjutan</li>
-      </ul>
-      
-      <p>Dengan komitmen bersama dari semua pemangku kepentingan, kita dapat menciptakan industri sawit yang berkelanjutan dan berkeadilan, yang memberikan manfaat ekonomi sambil melindungi lingkungan dan masyarakat. Mari bergabung dalam gerakan Sawit Berkelanjutan untuk Indonesia Lebih Baik!</p>`,
-      date: "15 April 2024",
-      category: "lingkungan",
-      image: "campaign-1"
-    },
-    {
-      id: 2,
-      title: "Kehidupan Petani Sawit: Tantangan dan Harapan",
-      content: `<p class="mb-4">Petani sawit kecil memainkan peran vital dalam industri sawit Indonesia. Diperkirakan lebih dari 40% perkebunan sawit di Indonesia dikelola oleh petani kecil, menjadikan mereka tulang punggung industri ini. Namun, mereka juga menghadapi berbagai tantangan yang signifikan dalam menerapkan praktik pertanian berkelanjutan.</p>
-      
-      <p class="mb-4">Kampanye "Kehidupan Petani Sawit: Tantangan dan Harapan" bertujuan untuk mendokumentasikan realitas kehidupan petani sawit kecil dan mengidentifikasi solusi untuk meningkatkan kesejahteraan mereka sambil mendorong praktik pertanian yang lebih berkelanjutan.</p>
-      
-      <h3 class="text-xl font-semibold my-4">Tantangan yang Dihadapi Petani Sawit Kecil</h3>
-      
-      <p class="mb-4">Petani sawit kecil menghadapi beberapa tantangan utama:</p>
-      
-      <ul class="list-disc pl-6 mb-4">
-        <li class="mb-2">Akses terbatas ke bibit berkualitas tinggi dan input pertanian</li>
-        <li class="mb-2">Pengetahuan dan keterampilan teknis yang terbatas</li>
-        <li class="mb-2">Akses ke pembiayaan yang sulit</li>
-        <li class="mb-2">Ketidakpastian kepemilikan lahan</li>
-        <li class="mb-2">Posisi tawar yang lemah dalam rantai pasok</li>
-        <li class="mb-2">Kesulitan memenuhi standar keberlanjutan</li>
-        <li class="mb-2">Dampak perubahan iklim pada produktivitas</li>
-      </ul>
-      
-      <h3 class="text-xl font-semibold my-4">Kisah Inspiratif Petani Sawit</h3>
-      
-      <p class="mb-4">Meskipun tantangan besar, banyak petani sawit telah menunjukkan ketahanan dan inovasi luar biasa:</p>
-      
-      <p class="mb-4">Pak Rahmat dari Riau berhasil meningkatkan produktivitas kebunnya sebesar 30% setelah mengadopsi praktik pertanian berkelanjutan. Ia sekarang menjadi pelatih bagi petani lain di desanya, berbagi pengetahuan dan pengalamannya.</p>
-      
-      <p class="mb-4">Bu Siti dari Kalimantan Barat memimpin kelompok tani perempuan yang berhasil mendapatkan sertifikasi RSPO. Kelompoknya kini menikmati akses ke pasar premium dan pendapatan yang lebih stabil.</p>
-      
-      <h3 class="text-xl font-semibold my-4">Solusi untuk Memberdayakan Petani Sawit</h3>
-      
-      <p class="mb-4">Beberapa solusi kunci untuk mendukung petani sawit kecil antara lain:</p>
-      
-      <ol class="list-decimal pl-6 mb-4">
-        <li class="mb-2"><strong>Skema Sertifikasi Berkelanjutan yang Inklusif</strong> - Menyederhanakan proses sertifikasi dan memberikan dukungan teknis kepada petani kecil untuk memenuhi standar.</li>
-        <li class="mb-2"><strong>Akses ke Pembiayaan</strong> - Mengembangkan produk keuangan yang disesuaikan dengan kebutuhan petani kecil, termasuk kredit mikro dengan suku bunga rendah.</li>
-        <li class="mb-2"><strong>Pelatihan dan Pengembangan Kapasitas</strong> - Menyediakan pelatihan tentang praktik pertanian terbaik, pengelolaan keuangan, dan keterampilan wirausaha.</li>
-        <li class="mb-2"><strong>Teknologi yang Tepat</strong> - Memperkenalkan teknologi yang terjangkau dan sesuai untuk meningkatkan produktivitas dan keberlanjutan.</li>
-        <li class="mb-2"><strong>Organisasi Petani yang Kuat</strong> - Mendukung pembentukan dan penguatan kelompok tani untuk meningkatkan posisi tawar kolektif.</li>
-      </ol>
-      
-      <h3 class="text-xl font-semibold my-4">Program Sawit-iCare untuk Petani</h3>
-      
-      <p class="mb-4">Sawit-iCare berkomitmen untuk memberdayakan petani sawit kecil melalui beberapa program:</p>
-      
-      <ul class="list-disc pl-6 mb-4">
-        <li class="mb-2">Akademi Petani Sawit - Platform pelatihan online dan offline untuk pengembangan keterampilan</li>
-        <li class="mb-2">Kalkulator Upah dan Produktivitas - Aplikasi untuk membantu petani menghitung biaya, pendapatan, dan produktivitas</li>
-        <li class="mb-2">Jaringan Mentoring - Menghubungkan petani berpengalaman dengan petani pemula</li>
-        <li class="mb-2">Fasilitasi Sertifikasi - Dukungan teknis dan administratif untuk proses sertifikasi</li>
-        <li class="mb-2">Koneksi Pasar - Menghubungkan petani dengan pembeli yang berkomitmen pada keberlanjutan</li>
-      </ul>
-      
-      <h3 class="text-xl font-semibold my-4">Cerita dari Lapangan: Dampak Positif</h3>
-      
-      <p class="mb-4">Program-program ini telah membawa perubahan positif bagi banyak petani:</p>
-      
-      <p class="mb-4">"Setelah bergabung dengan program Sawit-iCare, produktivitas kebun saya meningkat dan pendapatan saya menjadi lebih stabil. Yang lebih penting, saya sekarang tahu cara mengelola kebun dengan cara yang baik untuk lingkungan dan masa depan anak-anak saya." - Pak Darmawan, petani sawit dari Jambi</p>
-      
-      <p>"Sebagai petani perempuan, saya dulu merasa suara saya tidak didengar. Melalui program pemberdayaan perempuan Sawit-iCare, saya sekarang menjadi ketua kelompok tani di desa saya dan aktif berbicara tentang hak-hak petani di forum provinsi." - Bu Aminah, petani sawit dari Sumatera Selatan</p>
-      
-      <p>Mari bersama-sama mendukung petani sawit Indonesia dalam perjalanan mereka menuju praktik pertanian yang lebih berkelanjutan dan mata pencaharian yang lebih baik. Dengan mendukung petani kecil, kita berinvestasi dalam masa depan industri sawit yang berkelanjutan dan berkeadilan.</p>`,
-      date: "2 Maret 2024",
-      category: "petani",
-      image: "campaign-2"
-    }
-  ];
 
   useEffect(() => {
     // Simulasi loading data

@@ -7,6 +7,147 @@ import Link from "next/link";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
+// Data artikel sample
+const articlesDatabase = [
+  {
+    id: 1,
+    title: "Mengapa Keberlanjutan Penting dalam Industri Sawit Indonesia",
+    content: `<p class="mb-4">Keberlanjutan telah menjadi kata kunci yang semakin penting dalam industri sawit Indonesia. Sebagai produsen minyak sawit terbesar di dunia, Indonesia memiliki tanggung jawab besar untuk memastikan bahwa produksi sawit tidak hanya menguntungkan secara ekonomi tetapi juga bertanggung jawab terhadap lingkungan dan masyarakat.</p>
+    
+    <p class="mb-4">Dampak lingkungan dari perkebunan sawit yang tidak berkelanjutan sangat signifikan. Deforestasi, hilangnya keanekaragaman hayati, dan emisi gas rumah kaca adalah beberapa masalah utama yang sering dikaitkan dengan ekspansi perkebunan sawit yang tidak dikelola dengan baik. Selain itu, konflik sosial dengan masyarakat lokal dan pelanggaran hak-hak pekerja juga menjadi sorotan internasional.</p>
+    
+    <h3 class="text-xl font-semibold my-4">Manfaat Keberlanjutan</h3>
+    
+    <p class="mb-4">Menerapkan praktik berkelanjutan dalam industri sawit membawa berbagai manfaat:</p>
+    
+    <ul class="list-disc pl-6 mb-4">
+      <li class="mb-2">Akses pasar yang lebih luas, terutama ke negara-negara yang mementingkan produk berkelanjutan</li>
+      <li class="mb-2">Peningkatan efisiensi operasional dan pengurangan biaya jangka panjang</li>
+      <li class="mb-2">Pengurangan risiko reputasi dan regulasi</li>
+      <li class="mb-2">Hubungan yang lebih baik dengan masyarakat lokal dan pemangku kepentingan lainnya</li>
+      <li class="mb-2">Kontribusi positif terhadap mitigasi perubahan iklim</li>
+    </ul>
+    
+    <h3 class="text-xl font-semibold my-4">Standar dan Sertifikasi</h3>
+    
+    <p class="mb-4">Untuk memastikan keberlanjutan, industri sawit diatur oleh berbagai standar dan skema sertifikasi. Dua yang paling menonjol adalah:</p>
+    
+    <ol class="list-decimal pl-6 mb-4">
+      <li class="mb-2"><strong>RSPO (Roundtable on Sustainable Palm Oil)</strong> - Standar internasional yang mempromosikan produksi minyak sawit berkelanjutan melalui kriteria lingkungan dan sosial yang ketat.</li>
+      <li class="mb-2"><strong>ISPO (Indonesian Sustainable Palm Oil)</strong> - Standar nasional Indonesia yang wajib bagi semua produsen sawit di negara ini, dengan fokus pada kepatuhan hukum dan praktik terbaik.</li>
+    </ol>
+    
+    <p class="mb-4">Perusahaan yang memperoleh sertifikasi ini menunjukkan komitmen mereka terhadap praktik berkelanjutan dan dapat menikmati akses yang lebih baik ke pasar global.</p>
+    
+    <h3 class="text-xl font-semibold my-4">Peran Teknologi</h3>
+    
+    <p class="mb-4">Kemajuan teknologi memainkan peran penting dalam mendukung keberlanjutan di industri sawit. Beberapa inovasi yang menjanjikan termasuk:</p>
+    
+    <ul class="list-disc pl-6 mb-4">
+      <li class="mb-2">Pemantauan berbasis satelit untuk mencegah deforestasi</li>
+      <li class="mb-2">Teknologi blockchain untuk keterlacakan rantai pasok</li>
+      <li class="mb-2">Aplikasi mobile untuk mengedukasi dan membantu petani kecil</li>
+      <li class="mb-2">Sistem pengelolaan air dan limbah yang lebih efisien</li>
+    </ul>
+    
+    <p class="mb-4">Dengan adopsi teknologi ini, produsen sawit dapat lebih efektif dalam mengelola dampak lingkungan dan sosial dari operasi mereka.</p>
+    
+    <h3 class="text-xl font-semibold my-4">Kesimpulan</h3>
+    
+    <p class="mb-4">Keberlanjutan bukan hanya pilihan tetapi keharusan bagi industri sawit Indonesia. Dengan menerapkan praktik berkelanjutan, industri ini dapat terus memberikan kontribusi ekonomi yang signifikan sambil meminimalkan dampak negatifnya terhadap lingkungan dan masyarakat. Kerjasama antara pemerintah, perusahaan, masyarakat sipil, dan petani kecil sangat penting untuk mencapai tujuan ini.</p>
+    
+    <p>Melalui Sawit-iCare, kami berkomitmen untuk mendukung transformasi industri sawit Indonesia menuju praktik yang lebih berkelanjutan, transparan, dan adil bagi semua pemangku kepentingan.</p>`,
+    date: "20 April 2024",
+    category: "sustainability",
+    author: "Dr. Siti Nurbaya",
+    readTime: "8 menit",
+    image: "sustainability-1"
+  },
+  {
+    id: 2,
+    title: "Teknologi Drone untuk Pemantauan Kesehatan Tanaman Sawit",
+    content: `<p class="mb-4">Teknologi drone telah merevolusi berbagai industri, dan perkebunan sawit tidak terkecuali. Dalam beberapa tahun terakhir, penggunaan drone untuk memantau kesehatan tanaman sawit telah menjadi praktik yang semakin umum di perkebunan besar maupun kecil di Indonesia.</p>
+    
+    <p class="mb-4">Drone dilengkapi dengan kamera multispektral yang dapat mendeteksi stres tanaman, kekurangan nutrisi, serangan hama, dan masalah kesehatan tanaman lainnya bahkan sebelum gejala tersebut terlihat oleh mata manusia. Hal ini memungkinkan tindakan preventif yang lebih cepat dan efisien.</p>
+    
+    <h3 class="text-xl font-semibold my-4">Manfaat Pemantauan Drone</h3>
+    
+    <p class="mb-4">Penggunaan drone untuk pemantauan kesehatan tanaman sawit memiliki beberapa manfaat signifikan:</p>
+    
+    <ul class="list-disc pl-6 mb-4">
+      <li class="mb-2">Deteksi dini masalah kesehatan tanaman</li>
+      <li class="mb-2">Pengurangan penggunaan pestisida melalui aplikasi yang lebih tepat sasaran</li>
+      <li class="mb-2">Optimasi penggunaan pupuk berdasarkan kebutuhan tanaman</li>
+      <li class="mb-2">Penghematan waktu dan tenaga kerja dibandingkan dengan survei manual</li>
+      <li class="mb-2">Data yang lebih akurat untuk pengambilan keputusan</li>
+    </ul>
+    
+    <h3 class="text-xl font-semibold my-4">Teknologi di Balik Drone Pertanian</h3>
+    
+    <p class="mb-4">Drone modern yang digunakan dalam perkebunan sawit dilengkapi dengan berbagai sensor canggih:</p>
+    
+    <ol class="list-decimal pl-6 mb-4">
+      <li class="mb-2"><strong>Kamera RGB</strong> - Untuk pemetaan visual standar dan pemantauan umum</li>
+      <li class="mb-2"><strong>Sensor Multispektral</strong> - Mengukur refleksi cahaya pada berbagai panjang gelombang untuk mendeteksi kesehatan tanaman</li>
+      <li class="mb-2"><strong>Sensor Termal</strong> - Mengukur suhu tanaman untuk mendeteksi stres air</li>
+      <li class="mb-2"><strong>LiDAR</strong> - Untuk pemetaan topografi dan struktur kanopi tanaman</li>
+    </ol>
+    
+    <p class="mb-4">Data yang dikumpulkan oleh drone kemudian dianalisis menggunakan perangkat lunak khusus yang menerapkan algoritma kecerdasan buatan untuk mengidentifikasi area yang memerlukan perhatian.</p>
+    
+    <h3 class="text-xl font-semibold my-4">Implementasi di Lapangan</h3>
+    
+    <p class="mb-4">Beberapa perusahaan sawit terkemuka di Indonesia telah mengadopsi teknologi drone dengan hasil yang sangat positif. Misalnya, sebuah perkebunan di Kalimantan Timur melaporkan pengurangan penggunaan pestisida hingga 30% dan peningkatan hasil panen sebesar 15% setelah mengimplementasikan pemantauan drone secara rutin.</p>
+    
+    <p class="mb-4">Untuk petani kecil, layanan drone bersama atau koperasi dapat menjadi solusi untuk mengakses teknologi ini tanpa harus mengeluarkan investasi besar untuk pembelian peralatan.</p>
+    
+    <h3 class="text-xl font-semibold my-4">Tantangan dan Solusi</h3>
+    
+    <p class="mb-4">Meskipun menjanjikan, penggunaan drone dalam perkebunan sawit masih menghadapi beberapa tantangan:</p>
+    
+    <ul class="list-disc pl-6 mb-4">
+      <li class="mb-2">Biaya awal yang tinggi untuk peralatan berkualitas</li>
+      <li class="mb-2">Kebutuhan akan operator terlatih</li>
+      <li class="mb-2">Keterbatasan baterai dan jangkauan terbang</li>
+      <li class="mb-2">Kondisi cuaca yang dapat mengganggu operasi</li>
+    </ul>
+    
+    <p class="mb-4">Namun, dengan perkembangan teknologi yang terus berlanjut, drone menjadi semakin terjangkau, mudah digunakan, dan tahan terhadap berbagai kondisi lingkungan.</p>
+    
+    <h3 class="text-xl font-semibold my-4">Masa Depan Teknologi Drone di Industri Sawit</h3>
+    
+    <p class="mb-4">Masa depan teknologi drone dalam perkebunan sawit sangat menjanjikan. Beberapa tren yang diperkirakan akan berkembang antara lain:</p>
+    
+    <ul class="list-disc pl-6 mb-4">
+      <li class="mb-2">Integrasi dengan sistem manajemen perkebunan yang lebih luas</li>
+      <li class="mb-2">Drone otonom yang dapat beroperasi tanpa campur tangan manusia</li>
+      <li class="mb-2">Kemampuan penyemprotan presisi untuk aplikasi pupuk dan pestisida</li>
+      <li class="mb-2">Analisis data real-time di lapangan</li>
+    </ul>
+    
+    <p>Dengan adopsi teknologi drone yang terus meningkat, industri sawit Indonesia berpotensi untuk menjadi lebih efisien, berkelanjutan, dan kompetitif di pasar global.</p>`,
+    date: "15 April 2024",
+    category: "innovation",
+    author: "Ir. Bambang Wijaya",
+    readTime: "6 menit",
+    image: "innovation-1"
+  }
+];
+
+// Fungsi generateStaticParams digunakan untuk pre-rendering halaman dengan parameter dinamis
+export function generateStaticParams() {
+  // Generate params untuk setiap artikel dalam database
+  // dan tambahkan beberapa ID tambahan untuk artikel placeholder
+  const params = [
+    ...articlesDatabase.map(article => ({ id: article.id.toString() })),
+    { id: "3" },
+    { id: "4" },
+    { id: "5" }
+  ];
+  
+  return params;
+}
+
 export default function ArticleDetailPage({ params }: { params: { id: string } }) {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -31,133 +172,6 @@ export default function ArticleDetailPage({ params }: { params: { id: string } }
     readTime: "",
     image: ""
   };
-
-  // Data artikel sample
-  const articlesDatabase = [
-    {
-      id: 1,
-      title: "Mengapa Keberlanjutan Penting dalam Industri Sawit Indonesia",
-      content: `<p class="mb-4">Keberlanjutan telah menjadi kata kunci yang semakin penting dalam industri sawit Indonesia. Sebagai produsen minyak sawit terbesar di dunia, Indonesia memiliki tanggung jawab besar untuk memastikan bahwa produksi sawit tidak hanya menguntungkan secara ekonomi tetapi juga bertanggung jawab terhadap lingkungan dan masyarakat.</p>
-      
-      <p class="mb-4">Dampak lingkungan dari perkebunan sawit yang tidak berkelanjutan sangat signifikan. Deforestasi, hilangnya keanekaragaman hayati, dan emisi gas rumah kaca adalah beberapa masalah utama yang sering dikaitkan dengan ekspansi perkebunan sawit yang tidak dikelola dengan baik. Selain itu, konflik sosial dengan masyarakat lokal dan pelanggaran hak-hak pekerja juga menjadi sorotan internasional.</p>
-      
-      <h3 class="text-xl font-semibold my-4">Manfaat Keberlanjutan</h3>
-      
-      <p class="mb-4">Menerapkan praktik berkelanjutan dalam industri sawit membawa berbagai manfaat:</p>
-      
-      <ul class="list-disc pl-6 mb-4">
-        <li class="mb-2">Akses pasar yang lebih luas, terutama ke negara-negara yang mementingkan produk berkelanjutan</li>
-        <li class="mb-2">Peningkatan efisiensi operasional dan pengurangan biaya jangka panjang</li>
-        <li class="mb-2">Pengurangan risiko reputasi dan regulasi</li>
-        <li class="mb-2">Hubungan yang lebih baik dengan masyarakat lokal dan pemangku kepentingan lainnya</li>
-        <li class="mb-2">Kontribusi positif terhadap mitigasi perubahan iklim</li>
-      </ul>
-      
-      <h3 class="text-xl font-semibold my-4">Standar dan Sertifikasi</h3>
-      
-      <p class="mb-4">Untuk memastikan keberlanjutan, industri sawit diatur oleh berbagai standar dan skema sertifikasi. Dua yang paling menonjol adalah:</p>
-      
-      <ol class="list-decimal pl-6 mb-4">
-        <li class="mb-2"><strong>RSPO (Roundtable on Sustainable Palm Oil)</strong> - Standar internasional yang mempromosikan produksi minyak sawit berkelanjutan melalui kriteria lingkungan dan sosial yang ketat.</li>
-        <li class="mb-2"><strong>ISPO (Indonesian Sustainable Palm Oil)</strong> - Standar nasional Indonesia yang wajib bagi semua produsen sawit di negara ini, dengan fokus pada kepatuhan hukum dan praktik terbaik.</li>
-      </ol>
-      
-      <p class="mb-4">Perusahaan yang memperoleh sertifikasi ini menunjukkan komitmen mereka terhadap praktik berkelanjutan dan dapat menikmati akses yang lebih baik ke pasar global.</p>
-      
-      <h3 class="text-xl font-semibold my-4">Peran Teknologi</h3>
-      
-      <p class="mb-4">Kemajuan teknologi memainkan peran penting dalam mendukung keberlanjutan di industri sawit. Beberapa inovasi yang menjanjikan termasuk:</p>
-      
-      <ul class="list-disc pl-6 mb-4">
-        <li class="mb-2">Pemantauan berbasis satelit untuk mencegah deforestasi</li>
-        <li class="mb-2">Teknologi blockchain untuk keterlacakan rantai pasok</li>
-        <li class="mb-2">Aplikasi mobile untuk mengedukasi dan membantu petani kecil</li>
-        <li class="mb-2">Sistem pengelolaan air dan limbah yang lebih efisien</li>
-      </ul>
-      
-      <p class="mb-4">Dengan adopsi teknologi ini, produsen sawit dapat lebih efektif dalam mengelola dampak lingkungan dan sosial dari operasi mereka.</p>
-      
-      <h3 class="text-xl font-semibold my-4">Kesimpulan</h3>
-      
-      <p class="mb-4">Keberlanjutan bukan hanya pilihan tetapi keharusan bagi industri sawit Indonesia. Dengan menerapkan praktik berkelanjutan, industri ini dapat terus memberikan kontribusi ekonomi yang signifikan sambil meminimalkan dampak negatifnya terhadap lingkungan dan masyarakat. Kerjasama antara pemerintah, perusahaan, masyarakat sipil, dan petani kecil sangat penting untuk mencapai tujuan ini.</p>
-      
-      <p>Melalui Sawit-iCare, kami berkomitmen untuk mendukung transformasi industri sawit Indonesia menuju praktik yang lebih berkelanjutan, transparan, dan adil bagi semua pemangku kepentingan.</p>`,
-      date: "20 April 2024",
-      category: "sustainability",
-      author: "Dr. Siti Nurbaya",
-      readTime: "8 menit",
-      image: "sustainability-1"
-    },
-    {
-      id: 2,
-      title: "Teknologi Drone untuk Pemantauan Kesehatan Tanaman Sawit",
-      content: `<p class="mb-4">Teknologi drone telah merevolusi berbagai industri, dan perkebunan sawit tidak terkecuali. Dalam beberapa tahun terakhir, penggunaan drone untuk memantau kesehatan tanaman sawit telah menjadi praktik yang semakin umum di perkebunan besar maupun kecil di Indonesia.</p>
-      
-      <p class="mb-4">Drone dilengkapi dengan kamera multispektral yang dapat mendeteksi stres tanaman, kekurangan nutrisi, serangan hama, dan masalah kesehatan tanaman lainnya bahkan sebelum gejala tersebut terlihat oleh mata manusia. Hal ini memungkinkan tindakan preventif yang lebih cepat dan efisien.</p>
-      
-      <h3 class="text-xl font-semibold my-4">Manfaat Pemantauan Drone</h3>
-      
-      <p class="mb-4">Penggunaan drone untuk pemantauan kesehatan tanaman sawit memiliki beberapa manfaat signifikan:</p>
-      
-      <ul class="list-disc pl-6 mb-4">
-        <li class="mb-2">Deteksi dini masalah kesehatan tanaman</li>
-        <li class="mb-2">Pengurangan penggunaan pestisida melalui aplikasi yang lebih tepat sasaran</li>
-        <li class="mb-2">Optimasi penggunaan pupuk berdasarkan kebutuhan tanaman</li>
-        <li class="mb-2">Penghematan waktu dan tenaga kerja dibandingkan dengan survei manual</li>
-        <li class="mb-2">Data yang lebih akurat untuk pengambilan keputusan</li>
-      </ul>
-      
-      <h3 class="text-xl font-semibold my-4">Teknologi di Balik Drone Pertanian</h3>
-      
-      <p class="mb-4">Drone modern yang digunakan dalam perkebunan sawit dilengkapi dengan berbagai sensor canggih:</p>
-      
-      <ol class="list-decimal pl-6 mb-4">
-        <li class="mb-2"><strong>Kamera RGB</strong> - Untuk pemetaan visual standar dan pemantauan umum</li>
-        <li class="mb-2"><strong>Sensor Multispektral</strong> - Mengukur refleksi cahaya pada berbagai panjang gelombang untuk mendeteksi kesehatan tanaman</li>
-        <li class="mb-2"><strong>Sensor Termal</strong> - Mengukur suhu tanaman untuk mendeteksi stres air</li>
-        <li class="mb-2"><strong>LiDAR</strong> - Untuk pemetaan topografi dan struktur kanopi tanaman</li>
-      </ol>
-      
-      <p class="mb-4">Data yang dikumpulkan oleh drone kemudian dianalisis menggunakan perangkat lunak khusus yang menerapkan algoritma kecerdasan buatan untuk mengidentifikasi area yang memerlukan perhatian.</p>
-      
-      <h3 class="text-xl font-semibold my-4">Implementasi di Lapangan</h3>
-      
-      <p class="mb-4">Beberapa perusahaan sawit terkemuka di Indonesia telah mengadopsi teknologi drone dengan hasil yang sangat positif. Misalnya, sebuah perkebunan di Kalimantan Timur melaporkan pengurangan penggunaan pestisida hingga 30% dan peningkatan hasil panen sebesar 15% setelah mengimplementasikan pemantauan drone secara rutin.</p>
-      
-      <p class="mb-4">Untuk petani kecil, layanan drone bersama atau koperasi dapat menjadi solusi untuk mengakses teknologi ini tanpa harus mengeluarkan investasi besar untuk pembelian peralatan.</p>
-      
-      <h3 class="text-xl font-semibold my-4">Tantangan dan Solusi</h3>
-      
-      <p class="mb-4">Meskipun menjanjikan, penggunaan drone dalam perkebunan sawit masih menghadapi beberapa tantangan:</p>
-      
-      <ul class="list-disc pl-6 mb-4">
-        <li class="mb-2">Biaya awal yang tinggi untuk peralatan berkualitas</li>
-        <li class="mb-2">Kebutuhan akan operator terlatih</li>
-        <li class="mb-2">Keterbatasan baterai dan jangkauan terbang</li>
-        <li class="mb-2">Kondisi cuaca yang dapat mengganggu operasi</li>
-      </ul>
-      
-      <p class="mb-4">Namun, dengan perkembangan teknologi yang terus berlanjut, drone menjadi semakin terjangkau, mudah digunakan, dan tahan terhadap berbagai kondisi lingkungan.</p>
-      
-      <h3 class="text-xl font-semibold my-4">Masa Depan Teknologi Drone di Industri Sawit</h3>
-      
-      <p class="mb-4">Masa depan teknologi drone dalam perkebunan sawit sangat menjanjikan. Beberapa tren yang diperkirakan akan berkembang antara lain:</p>
-      
-      <ul class="list-disc pl-6 mb-4">
-        <li class="mb-2">Integrasi dengan sistem manajemen perkebunan yang lebih luas</li>
-        <li class="mb-2">Drone otonom yang dapat beroperasi tanpa campur tangan manusia</li>
-        <li class="mb-2">Kemampuan penyemprotan presisi untuk aplikasi pupuk dan pestisida</li>
-        <li class="mb-2">Analisis data real-time di lapangan</li>
-      </ul>
-      
-      <p>Dengan adopsi teknologi drone yang terus meningkat, industri sawit Indonesia berpotensi untuk menjadi lebih efisien, berkelanjutan, dan kompetitif di pasar global.</p>`,
-      date: "15 April 2024",
-      category: "innovation",
-      author: "Ir. Bambang Wijaya",
-      readTime: "6 menit",
-      image: "innovation-1"
-    }
-  ];
 
   useEffect(() => {
     // Simulasi loading data
