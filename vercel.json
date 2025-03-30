@@ -24,36 +24,15 @@
   ],
   "trailingSlash": true,
   "rewrites": [
-    { "source": "/articles/:id", "destination": "/articles/[id]" },
-    { "source": "/awareness/:id", "destination": "/awareness/[id]" }
-  ],
-  "routes": [
-    {
-      "src": "^/auth/login(?:/)?$",
-      "dest": "/auth/login.html"
-    },
-    {
-      "src": "^/auth/register(?:/)?$",
-      "dest": "/auth/register.html"
-    },
-    {
-      "src": "^/auth/registration-success(?:/)?$",
-      "dest": "/auth/registration-success.html"
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "^/articles/([^/]+)(?:/)?$",
-      "dest": "/articles/[id].html?id=$1"
-    },
-    {
-      "src": "^/awareness/([^/]+)(?:/)?$",
-      "dest": "/awareness/[id].html?id=$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
+    { "source": "/auth/login", "destination": "/auth/login.html" },
+    { "source": "/auth/login/", "destination": "/auth/login.html" },
+    { "source": "/auth/register", "destination": "/auth/register.html" },
+    { "source": "/auth/register/", "destination": "/auth/register.html" },
+    { "source": "/auth/registration-success", "destination": "/auth/registration-success.html" },
+    { "source": "/auth/registration-success/", "destination": "/auth/registration-success.html" },
+    { "source": "/articles/:id", "destination": "/articles/[id].html?id=:id" },
+    { "source": "/articles/:id/", "destination": "/articles/[id].html?id=:id" },
+    { "source": "/awareness/:id", "destination": "/awareness/[id].html?id=:id" },
+    { "source": "/awareness/:id/", "destination": "/awareness/[id].html?id=:id" }
   ]
 } 

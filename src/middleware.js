@@ -6,15 +6,19 @@ export function middleware(request) {
   
   // Tangani login path khusus karena sering menyebabkan error
   if (pathname === '/auth/login' || pathname === '/auth/login/') {
-    // Pastikan trailing slash (atau hapus sesuai kebutuhan)
+    // Pastikan trailing slash konsisten sesuai konfigurasi
     const url = request.nextUrl.clone();
-    url.pathname = '/auth/login/';
+    if (pathname.endsWith('/')) {
+      url.pathname = '/auth/login/';
+    } else {
+      url.pathname = '/auth/login';
+    }
     return NextResponse.rewrite(url);
   }
   
   // Tangani path dynamic routes
   if (pathname.startsWith('/articles/') || pathname.startsWith('/awareness/')) {
-    // Tidak perlu modifikasi, biarkan next.js menanganinya
+    // Tidak perlu modifikasi, biarkan next.js dan vercel.json menanganinya
     return NextResponse.next();
   }
   

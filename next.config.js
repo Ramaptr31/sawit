@@ -82,10 +82,7 @@ const nextConfig = {
   },
   // Gunakan hash untuk routing dengan prefix yang dinamis
   assetPrefix: process.env.NODE_ENV === 'production' ? '.' : '',
-  // Pastikan tidak ada rewrites yang dapat menyebabkan isu
-  rewrites: async () => {
-    return [];
-  },
+  // Biarkan Vercel menangani rewrites melalui vercel.json
   distDir: process.env.NODE_ENV === 'production' ? 'out' : '.next',
 };
 
