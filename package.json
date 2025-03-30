@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "build-prod": "next build --no-lint --no-mangling",
+    "build-skip-typescript": "tsc --noEmit && next build",
+    "start": "next start -p 3002",
     "lint": "next lint",
     "type-check": "tsc --noEmit"
   },
