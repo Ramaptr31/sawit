@@ -22,8 +22,6 @@ const nextConfig = {
     // Mengabaikan error ESLint hanya direkomendasikan untuk pengembangan
     ignoreDuringBuilds: true,
   },
-  // Gunakan static export untuk Vercel
-  output: 'export',
   // Nonaktifkan static optimization untuk komponen yang menggunakan window/location
   images: {
     unoptimized: true,
@@ -43,8 +41,12 @@ const nextConfig = {
   },
   // Gunakan hash untuk routing dengan prefix yang benar (harus diawali dengan slash atau URL lengkap)
   assetPrefix: process.env.NODE_ENV === 'production' ? '/' : '',
-  // Biarkan Vercel menangani rewrites melalui vercel.json
-  distDir: process.env.NODE_ENV === 'production' ? 'out' : '.next',
+  // Default distDir
+  distDir: '.next',
+  // Tambahkan konfigurasi untuk menangani routes
+  generateBuildId: async () => {
+    return 'build-' + Date.now();
+  },
 };
 
 module.exports = nextConfig;

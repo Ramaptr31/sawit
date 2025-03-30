@@ -1,7 +1,7 @@
 {
   "framework": "nextjs",
-  "buildCommand": "npm run build",
-  "outputDirectory": "out",
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": ".next",
   "installCommand": "npm install",
   "headers": [
     {
@@ -24,15 +24,15 @@
   ],
   "trailingSlash": true,
   "rewrites": [
-    { "source": "/auth/login", "destination": "/auth/login.html" },
-    { "source": "/auth/login/", "destination": "/auth/login.html" },
-    { "source": "/auth/register", "destination": "/auth/register.html" },
-    { "source": "/auth/register/", "destination": "/auth/register.html" },
-    { "source": "/auth/registration-success", "destination": "/auth/registration-success.html" },
-    { "source": "/auth/registration-success/", "destination": "/auth/registration-success.html" },
-    { "source": "/articles/:id", "destination": "/articles/[id].html?id=:id" },
-    { "source": "/articles/:id/", "destination": "/articles/[id].html?id=:id" },
-    { "source": "/awareness/:id", "destination": "/awareness/[id].html?id=:id" },
-    { "source": "/awareness/:id/", "destination": "/awareness/[id].html?id=:id" }
+    { "source": "/auth/login", "destination": "/auth/login" },
+    { "source": "/auth/login/", "destination": "/auth/login/" },
+    { "source": "/auth/register", "destination": "/auth/register" },
+    { "source": "/auth/register/", "destination": "/auth/register/" },
+    { "source": "/auth/registration-success", "destination": "/auth/registration-success" },
+    { "source": "/auth/registration-success/", "destination": "/auth/registration-success/" },
+    { "source": "/articles/:id", "destination": "/articles/:id" },
+    { "source": "/articles/:id/", "destination": "/articles/:id/" },
+    { "source": "/awareness/:id", "destination": "/awareness/:id" },
+    { "source": "/awareness/:id/", "destination": "/awareness/:id/" }
   ]
 } 
