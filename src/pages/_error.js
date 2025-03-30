@@ -18,6 +18,9 @@ if (typeof window === 'undefined') {
     replace: () => {},
     reload: () => {},
   };
+  
+  // Tambahkan SVGElement polyfill
+  global.SVGElement = function() {};
 }
 
 function Error({ statusCode, message }) {
@@ -40,7 +43,14 @@ function Error({ statusCode, message }) {
 
 Error.getInitialProps = ({ res, err }) => {
   const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
-  const message = err ? err.message : null;
+  // Handle browser API errors specifically
+  let message = err ? err.message : null;
+  
+  // Log SVGElement errors specially
+  if (err && err.message && err.message.includes('SVGElement is not defined')) {
+    console.error('SVGElement Error:', err);
+    message = 'Terjadi kesalahan saat merender SVG';
+  }
   
   return { statusCode, message };
 };

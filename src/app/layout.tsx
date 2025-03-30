@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import "../lib/browserConfig.js";
+import "../lib/fix-svg.js";
 import BrowserPolyfillProvider from "../lib/browserPolyfill";
 
 const inter = Inter({
